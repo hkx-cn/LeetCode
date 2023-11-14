@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "LeetCode.exe"
+			"path" : "======LeetCode.exe"
 		},
 		{
-			"path" : "LeetCode.pdb"
+			"path" : "======LeetCode.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -124,7 +124,7 @@
 		"language" : "CXX"
 	},
 	"name" : "LeetCode",
-	"nameOnDisk" : "LeetCode.exe",
+	"nameOnDisk" : "======LeetCode.exe",
 	"paths" : 
 	{
 		"build" : ".",

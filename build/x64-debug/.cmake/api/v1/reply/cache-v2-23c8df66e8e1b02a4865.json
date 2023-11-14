@@ -2,6 +2,18 @@
 	"entries" : 
 	[
 		{
+			"name" : "",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : ""
+				}
+			],
+			"type" : "UNINITIALIZED",
+			"value" : "======"
+		},
+		{
 			"name" : "CMAKE_AR",
 			"properties" : 
 			[
