@@ -1,10 +1,10 @@
 ﻿#include "LeetCodeMain.h" 
-#include "LeetCode54.h"
+#include "LeetCode34.h"
 
 int main()
 {
-	Solution solution; 
-	vector<vector<int>> matrix = { {3} ,{2} };
-	vector<int> result = solution.spiralOrder(matrix);
+	Solution solution;
+	vector<int> matrix = { 5,7,7,8,8,10 };
+	vector<int> result = solution.searchRange(matrix,8);
 	cin.get();
 }

@@ -336,6 +336,34 @@ build CMakeFiles\LeetCode.dir\LeetCode54.cpp.obj: CXX_COMPILER__LeetCode_unscann
   TARGET_COMPILE_PDB = CMakeFiles\LeetCode.dir\
   TARGET_PDB = LeetCode.pdb
 
+build CMakeFiles\LeetCode.dir\LeetCode34.cpp.obj: CXX_COMPILER__LeetCode_unscanned_Debug C$:\Users\47080\source\repos\LeetCode\LeetCode34.cpp || cmake_object_order_depends_target_LeetCode
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
+  OBJECT_DIR = CMakeFiles\LeetCode.dir
+  OBJECT_FILE_DIR = CMakeFiles\LeetCode.dir
+  TARGET_COMPILE_PDB = CMakeFiles\LeetCode.dir\
+  TARGET_PDB = LeetCode.pdb
+
+build CMakeFiles\LeetCode.dir\LeetCode374.cpp.obj: CXX_COMPILER__LeetCode_unscanned_Debug C$:\Users\47080\source\repos\LeetCode\LeetCode374.cpp || cmake_object_order_depends_target_LeetCode
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
+  OBJECT_DIR = CMakeFiles\LeetCode.dir
+  OBJECT_FILE_DIR = CMakeFiles\LeetCode.dir
+  TARGET_COMPILE_PDB = CMakeFiles\LeetCode.dir\
+  TARGET_PDB = LeetCode.pdb
+
+build CMakeFiles\LeetCode.dir\LeetCode278.cpp.obj: CXX_COMPILER__LeetCode_unscanned_Debug C$:\Users\47080\source\repos\LeetCode\LeetCode278.cpp || cmake_object_order_depends_target_LeetCode
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
+  OBJECT_DIR = CMakeFiles\LeetCode.dir
+  OBJECT_FILE_DIR = CMakeFiles\LeetCode.dir
+  TARGET_COMPILE_PDB = CMakeFiles\LeetCode.dir\
+  TARGET_PDB = LeetCode.pdb
+
+build CMakeFiles\LeetCode.dir\LeetCode367.cpp.obj: CXX_COMPILER__LeetCode_unscanned_Debug C$:\Users\47080\source\repos\LeetCode\LeetCode367.cpp || cmake_object_order_depends_target_LeetCode
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI
+  OBJECT_DIR = CMakeFiles\LeetCode.dir
+  OBJECT_FILE_DIR = CMakeFiles\LeetCode.dir
+  TARGET_COMPILE_PDB = CMakeFiles\LeetCode.dir\
+  TARGET_PDB = LeetCode.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target LeetCode
@@ -344,7 +372,7 @@ build CMakeFiles\LeetCode.dir\LeetCode54.cpp.obj: CXX_COMPILER__LeetCode_unscann
 #############################################
 # Link the executable LeetCode.exe
 
-build LeetCode.exe: CXX_EXECUTABLE_LINKER__LeetCode_Debug CMakeFiles\LeetCode.dir\LeetCodeMain.cpp.obj CMakeFiles\LeetCode.dir\LeetCode1768.cpp.obj CMakeFiles\LeetCode.dir\LeetCode389.cpp.obj CMakeFiles\LeetCode.dir\LeetCode28.cpp.obj CMakeFiles\LeetCode.dir\LeetCode242.cpp.obj CMakeFiles\LeetCode.dir\LeetCode459.cpp.obj CMakeFiles\LeetCode.dir\LeetCode283.cpp.obj CMakeFiles\LeetCode.dir\LeetCode66.cpp.obj CMakeFiles\LeetCode.dir\LeetCode1822.cpp.obj CMakeFiles\LeetCode.dir\LeetCode1502.cpp.obj CMakeFiles\LeetCode.dir\LeetCode896.cpp.obj CMakeFiles\LeetCode.dir\LeetCode13.cpp.obj CMakeFiles\LeetCode.dir\LeetCode58.cpp.obj CMakeFiles\LeetCode.dir\LeetCode709.cpp.obj CMakeFiles\LeetCode.dir\LeetCode682.cpp.obj CMakeFiles\LeetCode.dir\LeetCode657.cpp.obj CMakeFiles\LeetCode.dir\LeetCode1275.cpp.obj CMakeFiles\LeetCode.dir\LeetCode1672.cpp.obj CMakeFiles\LeetCode.dir\LeetCode2235.cpp.obj CMakeFiles\LeetCode.dir\LeetCode2469.cpp.obj CMakeFiles\LeetCode.dir\LeetCode2413.cpp.obj CMakeFiles\LeetCode.dir\LeetCode2236.cpp.obj CMakeFiles\LeetCode.dir\LeetCode1486.cpp.obj CMakeFiles\LeetCode.dir\LeetCode1512.cpp.obj CMakeFiles\LeetCode.dir\LeetCode1534.cpp.obj CMakeFiles\LeetCode.dir\LeetCode1281.cpp.obj CMakeFiles\LeetCode.dir\LeetCode231.cpp.obj CMakeFiles\LeetCode.dir\LeetCode326.cpp.obj CMakeFiles\LeetCode.dir\LeetCode258.cpp.obj CMakeFiles\LeetCode.dir\LeetCode263.cpp.obj CMakeFiles\LeetCode.dir\LeetCode1470.cpp.obj CMakeFiles\LeetCode.dir\LeetCode704.cpp.obj CMakeFiles\LeetCode.dir\LeetCode35.cpp.obj CMakeFiles\LeetCode.dir\LeetCode744.cpp.obj CMakeFiles\LeetCode.dir\LeetCode1351.cpp.obj CMakeFiles\LeetCode.dir\LeetCode867.cpp.obj CMakeFiles\LeetCode.dir\LeetCode1422.cpp.obj CMakeFiles\LeetCode.dir\LeetCode2586.cpp.obj CMakeFiles\LeetCode.dir\LeetCode852.cpp.obj CMakeFiles\LeetCode.dir\LeetCode1572.cpp.obj CMakeFiles\LeetCode.dir\LeetCode54.cpp.obj
+build LeetCode.exe: CXX_EXECUTABLE_LINKER__LeetCode_Debug CMakeFiles\LeetCode.dir\LeetCodeMain.cpp.obj CMakeFiles\LeetCode.dir\LeetCode1768.cpp.obj CMakeFiles\LeetCode.dir\LeetCode389.cpp.obj CMakeFiles\LeetCode.dir\LeetCode28.cpp.obj CMakeFiles\LeetCode.dir\LeetCode242.cpp.obj CMakeFiles\LeetCode.dir\LeetCode459.cpp.obj CMakeFiles\LeetCode.dir\LeetCode283.cpp.obj CMakeFiles\LeetCode.dir\LeetCode66.cpp.obj CMakeFiles\LeetCode.dir\LeetCode1822.cpp.obj CMakeFiles\LeetCode.dir\LeetCode1502.cpp.obj CMakeFiles\LeetCode.dir\LeetCode896.cpp.obj CMakeFiles\LeetCode.dir\LeetCode13.cpp.obj CMakeFiles\LeetCode.dir\LeetCode58.cpp.obj CMakeFiles\LeetCode.dir\LeetCode709.cpp.obj CMakeFiles\LeetCode.dir\LeetCode682.cpp.obj CMakeFiles\LeetCode.dir\LeetCode657.cpp.obj CMakeFiles\LeetCode.dir\LeetCode1275.cpp.obj CMakeFiles\LeetCode.dir\LeetCode1672.cpp.obj CMakeFiles\LeetCode.dir\LeetCode2235.cpp.obj CMakeFiles\LeetCode.dir\LeetCode2469.cpp.obj CMakeFiles\LeetCode.dir\LeetCode2413.cpp.obj CMakeFiles\LeetCode.dir\LeetCode2236.cpp.obj CMakeFiles\LeetCode.dir\LeetCode1486.cpp.obj CMakeFiles\LeetCode.dir\LeetCode1512.cpp.obj CMakeFiles\LeetCode.dir\LeetCode1534.cpp.obj CMakeFiles\LeetCode.dir\LeetCode1281.cpp.obj CMakeFiles\LeetCode.dir\LeetCode231.cpp.obj CMakeFiles\LeetCode.dir\LeetCode326.cpp.obj CMakeFiles\LeetCode.dir\LeetCode258.cpp.obj CMakeFiles\LeetCode.dir\LeetCode263.cpp.obj CMakeFiles\LeetCode.dir\LeetCode1470.cpp.obj CMakeFiles\LeetCode.dir\LeetCode704.cpp.obj CMakeFiles\LeetCode.dir\LeetCode35.cpp.obj CMakeFiles\LeetCode.dir\LeetCode744.cpp.obj CMakeFiles\LeetCode.dir\LeetCode1351.cpp.obj CMakeFiles\LeetCode.dir\LeetCode867.cpp.obj CMakeFiles\LeetCode.dir\LeetCode1422.cpp.obj CMakeFiles\LeetCode.dir\LeetCode2586.cpp.obj CMakeFiles\LeetCode.dir\LeetCode852.cpp.obj CMakeFiles\LeetCode.dir\LeetCode1572.cpp.obj CMakeFiles\LeetCode.dir\LeetCode54.cpp.obj CMakeFiles\LeetCode.dir\LeetCode34.cpp.obj CMakeFiles\LeetCode.dir\LeetCode374.cpp.obj CMakeFiles\LeetCode.dir\LeetCode278.cpp.obj CMakeFiles\LeetCode.dir\LeetCode367.cpp.obj
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -ZI
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
   LINK_LIBRARIES = kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib

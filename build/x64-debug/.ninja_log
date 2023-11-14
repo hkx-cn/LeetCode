@@ -1,5 +1,5 @@
 # ninja log v5
-16	930	7216805341028958	CMakeFiles/LeetCode.dir/LeetCodeMain.cpp.obj	acab1469ed73b3a6
+13	780	7217566522122745	CMakeFiles/LeetCode.dir/LeetCodeMain.cpp.obj	acab1469ed73b3a6
 61	2130	7216758843862278	CMakeFiles/LeetCode.dir/LeetCode13.cpp.obj	189e87ca83e1cfb7
 47	1193	7216758965389046	CMakeFiles/LeetCode.dir/LeetCode2469.cpp.obj	949f3feba4aac854
 27	2172	7216758844563918	CMakeFiles/LeetCode.dir/LeetCode459.cpp.obj	fc7e7a853df5bef2
@@ -28,10 +28,10 @@
 203	320	7216758957399620	CMakeFiles/LeetCode.dir/LeetCode258.cpp.obj	5edef574316d084
 34	1087	7216758965113667	CMakeFiles/LeetCode.dir/LeetCode1672.cpp.obj	cdf77d74c7dcfb2
 69	1258	7216758966575921	CMakeFiles/LeetCode.dir/LeetCode1512.cpp.obj	7a9e6766853f456f
-23	449	7216805336218926	CMakeFiles/LeetCode.dir/LeetCode54.cpp.obj	628437f11220f967
+37	760	7217550429664704	CMakeFiles/LeetCode.dir/LeetCode54.cpp.obj	628437f11220f967
 221	1249	7216758966565944	CMakeFiles/LeetCode.dir/LeetCode704.cpp.obj	8c29511b32ae3983
 75	1342	7216758967536797	CMakeFiles/LeetCode.dir/LeetCode1534.cpp.obj	4855bf3df91553d7
-320	1384	7216758968088897	CMakeFiles/LeetCode.dir/LeetCode1351.cpp.obj	52ba72b99c25dec2
+9	645	7217566387829202	CMakeFiles/LeetCode.dir/LeetCode1351.cpp.obj	52ba72b99c25dec2
 214	1397	7216758967973430	CMakeFiles/LeetCode.dir/LeetCode1470.cpp.obj	155485acc0377675
 311	1399	7216758968202794	CMakeFiles/LeetCode.dir/LeetCode744.cpp.obj	a5688902e1010593
 329	1455	7216758968708483	CMakeFiles/LeetCode.dir/LeetCode867.cpp.obj	ab20cdea5fec2725
@@ -40,4 +40,5 @@
 29	2210	7216758976373597	CMakeFiles/LeetCode.dir/LeetCode1275.cpp.obj	98366af79dbf7463
 1193	2595	7216758980232158	CMakeFiles/LeetCode.dir/LeetCode2586.cpp.obj	d0427c5545503c43
 1088	2714	7216758981436093	CMakeFiles/LeetCode.dir/LeetCode1422.cpp.obj	4518838f0fa0051c
-931	1126	7216805342587318	LeetCode.exe	efe4e59d778b4c14
+782	1127	7217566524969525	LeetCode.exe	d87e9584cdf6fac4
+13	668	7217566388019320	CMakeFiles/LeetCode.dir/LeetCode34.cpp.obj	8304d9452004931a
