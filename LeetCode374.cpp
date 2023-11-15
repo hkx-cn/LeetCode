@@ -43,27 +43,27 @@
  *               otherwise return 0
  * int guess(int num);
  */
-
+#include "LeetCode374.h"
 int Solution::guessNumber(int n) {
     unsigned int left = 1, right = n;
     int mid = -1, result = -1;
-    while (left <= right)
-    {
-        mid = (long)(left + right) / 2;
-        result = guess(mid);
-        if (result == 1)
-        {
-            left = mid + 1;
-        }
-        else if (result == -1)
-        {
-            right = mid - 1;
-        }
-        else if (result == 0)
-        {
-            break;
-        }
-    }
+    //while (left <= right)
+    //{
+    //    mid = (long)(left + right) / 2;
+    //    result = guess(mid);
+    //    if (result == 1)
+    //    {
+    //        left = mid + 1;
+    //    }
+    //    else if (result == -1)
+    //    {
+    //        right = mid - 1;
+    //    }
+    //    else if (result == 0)
+    //    {
+    //        break;
+    //    }
+    //}
     return mid;
 };
 //方法一：二分查找

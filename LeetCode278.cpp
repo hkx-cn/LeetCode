@@ -32,19 +32,19 @@ int Solution::firstBadVersion(int n) {
     unsigned int left = 1, right = n;
     int mid = -1;
     bool result = false;
-    while (left <= right)
-    {
-        mid = (long)(left + right) / 2;
-        result = isBadVersion(mid);
-        if (!result)
-        {
-            left = mid + 1;
-        }
-        else
-        {
-            right = mid - 1;
-        }
-    }
+    //while (left <= right)
+    //{
+    //    mid = (long)(left + right) / 2;
+    //    result = isBadVersion(mid);
+    //    if (!result)
+    //    {
+    //        left = mid + 1;
+    //    }
+    //    else
+    //    {
+    //        right = mid - 1;
+    //    }
+    //}
     return left;
 };
 //方法一：二分查找
