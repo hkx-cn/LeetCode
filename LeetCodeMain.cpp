@@ -1,10 +1,10 @@
-﻿#include "LeetCodeMain.h" 
-#include "LeetCode34.h"
+﻿#include "LeetCodeMain.h"
+#include "LeetCode976.h"
 
 int main()
 {
 	Solution solution;
-	vector<int> matrix = { 5,7,7,8,8,10 };
-	vector<int> result = solution.searchRange(matrix,8);
+	vector<int> matrix = {2, 1, 2};
+	int result = solution.largestPerimeter(matrix);
 	cin.get();
 }
