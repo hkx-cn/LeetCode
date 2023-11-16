@@ -1,10 +1,10 @@
 ﻿#include "LeetCodeMain.h"
-#include "LeetCode976.h"
+#include "LeetCode1232.h"
 
 int main()
 {
 	Solution solution;
-	vector<int> matrix = {2, 1, 2};
-	int result = solution.largestPerimeter(matrix);
+	vector<vector<int>> coordinates = {{0, 0}, {0, 1}, {0, -1}};
+	bool result = solution.checkStraightLine(coordinates);
 	cin.get();
 }
