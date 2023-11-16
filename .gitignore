@@ -39,6 +39,8 @@ bld/
 #wwwroot/
 
 .vscode/
+build/
+install/
 
 # Visual Studio 2017 auto generated files
 Generated\ Files/
