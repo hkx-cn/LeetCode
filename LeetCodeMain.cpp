@@ -1,10 +1,9 @@
 ﻿#include "LeetCodeMain.h"
-#include "LeetCode1232.h"
+#include "LeetCode67.h"
 
 int main()
 {
 	Solution solution;
-	vector<vector<int>> coordinates = {{0, 0}, {0, 1}, {0, -1}};
-	bool result = solution.checkStraightLine(coordinates);
+	string result = solution.addBinary("11", "1");
 	cin.get();
 }
