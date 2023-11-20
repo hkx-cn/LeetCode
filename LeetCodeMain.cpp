@@ -1,15 +1,10 @@
 ﻿#include "LeetCodeMain.h"
-#include "LeetCode21.h"
+#include "LeetCode1539.h" 
 
 int main()
 {
 	Solution solution;
-	ListNode *a = new ListNode(1);
-	a->next = new ListNode(2);
-	a->next->next = new ListNode(4);
-	ListNode *b = new ListNode(1);
-	b->next = new ListNode(3);
-	b->next->next = new ListNode(4);
-	ListNode *result = solution.mergeTwoLists(a, b);
+	vector<int> arr = {2, 3, 4, 7, 11};
+	int result = solution.findKthPositive(arr, 5);
 	cin.get();
 }
