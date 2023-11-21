@@ -3,13 +3,12 @@
 //
 //
 //
-//示例 1：
-//
+//示例 1： 
 //输入：low = 3, high = 7
 //输出：3
 //解释：3 到 7 之间奇数数字为[3, 5, 7] 。
-//示例 2：
 //
+//示例 2： 
 //输入：low = 8, high = 10
 //输出：1
 //解释：8 到 10 之间奇数数字为[9] 。
@@ -38,17 +37,12 @@ int Solution::countOdds(int low, int high) {
 //方法一：前缀和思想
 //思路与算法
 //
-//如果我们暴力枚举[low, high]{ \rm[low, high] }[low, high] 中的所有元素会超出时间限制。
+//如果我们暴力枚举[low, high] 中的所有元素会超出时间限制。
 //
-//我们可以使用前缀和思想来解决这个问题，定义 pre(x) { \rm pre }(x)pre(x) 为区间[0, x][0, x][0, x] 中奇数的个数，很显然：
+//我们可以使用前缀和思想来解决这个问题，定义 pre(x) 为区间[0, x] 中奇数的个数，很显然：
 //
-//pre(x) = ⌊x + 12⌋{ \rm pre }(x) = \lfloor \frac{ x + 1 }{2} \rfloorpre(x) = ⌊
-//2
-//x + 1
-//​
-//⌋
-//
-//故答案为 pre(high)−pre(low−1)\rm pre(high) - pre(low - 1)pre(high)−pre(low−1)。
+//pre(x) = ⌊(x + 1)/2⌋
+//故答案为 pre(high)−pre(low−1)。
 //class Solution {
 //public:
 //    int pre(int x) {
@@ -61,6 +55,6 @@ int Solution::countOdds(int low, int high) {
 //};
 //复杂度分析
 //
-//时间复杂度：O(1)O(1)O(1)。
+//时间复杂度：O(1)。
 //
-//空间复杂度：O(1)O(1)O(1)。
+//空间复杂度：O(1)。

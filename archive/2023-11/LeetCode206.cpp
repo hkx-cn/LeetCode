@@ -48,9 +48,9 @@ ListNode *Solution::reverseList(ListNode *head)
 	}
 };
 // 方法一：迭代
-// 假设链表为 1→2→3→∅1 \rightarrow 2 \rightarrow 3 \rightarrow \varnothing1→2→3→∅，我们想要把它改成 ∅←1←2←3\varnothing \leftarrow 1 \leftarrow 2 \leftarrow 3∅←1←2←3。
+// 假设链表为 1→2→3→∅，我们想要把它改成 ∅←1←2←3。
 
-// 在遍历链表时，将当前节点的 next\textit{next}next 指针改为指向前一个节点。由于节点没有引用其前一个节点，因此必须事先存储其前一个节点。在更改引用之前，还需要存储后一个节点。最后返回新的头引用。
+// 在遍历链表时，将当前节点的 next 指针改为指向前一个节点。由于节点没有引用其前一个节点，因此必须事先存储其前一个节点。在更改引用之前，还需要存储后一个节点。最后返回新的头引用。
 // class Solution {
 // public:
 //     ListNode* reverseList(ListNode* head) {
@@ -67,78 +67,22 @@ ListNode *Solution::reverseList(ListNode *head)
 // };
 // 复杂度分析
 
-// 时间复杂度：O(n)O(n)O(n)，其中 nnn 是链表的长度。需要遍历链表一次。
+// 时间复杂度：O(n)，其中 n 是链表的长度。需要遍历链表一次。
 
-// 空间复杂度：O(1)O(1)O(1)。
+// 空间复杂度：O(1)。
 
 // 方法二：递归
 // 递归版本稍微复杂一些，其关键在于反向工作。假设链表的其余部分已经被反转，现在应该如何反转它前面的部分？
 
-// 假设链表为： n1→…→nk−1→nk→nk+1→…→nm→∅n_1\rightarrow \ldots \rightarrow n_{k-1} \rightarrow n_k \rightarrow n_{k+1} \rightarrow \ldots \rightarrow n_m \rightarrow \varnothingn 
-// 1
-// ​
-//  →…→n 
-// k−1
-// ​
-//  →n 
-// k
-// ​
-//  →n 
-// k+1
-// ​
-//  →…→n 
-// m
-// ​
-//  →∅
+// 假设链表为： n1→…→nk−1→nk→nk+1→…→nm→∅
+// 若从节点 nk+1 到 nm 已经被反转，而我们正处于 nk。
 
-// 若从节点 nk+1n_{k+1}n 
-// k+1
-// ​
-//   到 nmn_mn 
-// m
-// ​
-//   已经被反转，而我们正处于 nkn_kn 
-// k
-// ​
-//  。
+// n1→…→nk−1→nk→nk+1←…←nm
+// 我们希望 nk+1 的下一个节点指向 nk。
 
-// n1→…→nk−1→nk→nk+1←…←nmn_1\rightarrow \ldots \rightarrow n_{k-1} \rightarrow n_k \rightarrow n_{k+1} \leftarrow \ldots \leftarrow n_mn 
-// 1
-// ​
-//  →…→n 
-// k−1
-// ​
-//  →n 
-// k
-// ​
-//  →n 
-// k+1
-// ​
-//  ←…←n 
-// m
-// ​
- 
+// 所以，nk.next.next=nk。
 
-// 我们希望 nk+1n_{k+1}n 
-// k+1
-// ​
-//   的下一个节点指向 nkn_kn 
-// k
-// ​
-//  。
-
-// 所以，nk.next.next=nkn_k.\textit{next}.\textit{next} = n_kn 
-// k
-// ​
-//  .next.next=n 
-// k
-// ​
-//  。
-
-// 需要注意的是 n1n_1n 
-// 1
-// ​
-//   的下一个节点必须指向 ∅\varnothing∅。如果忽略了这一点，链表中可能会产生环。
+// 需要注意的是 n1 的下一个节点必须指向 ∅。如果忽略了这一点，链表中可能会产生环。
 // class Solution {
 // public:
 //     ListNode* reverseList(ListNode* head) {
@@ -153,6 +97,6 @@ ListNode *Solution::reverseList(ListNode *head)
 // };
 // 复杂度分析
 
-// 时间复杂度：O(n)O(n)O(n)，其中 nnn 是链表的长度。需要对链表的每个节点进行反转操作。
+// 时间复杂度：O(n)=，其中 n 是链表的长度。需要对链表的每个节点进行反转操作。
 
-// 空间复杂度：O(n)O(n)O(n)，其中 nnn 是链表的长度。空间复杂度主要取决于递归调用的栈空间，最多为 nnn 层。
+// 空间复杂度：O(n)=，其中 n 是链表的长度。空间复杂度主要取决于递归调用的栈空间，最多为 n 层。

@@ -1,30 +1,28 @@
-//896. µ¥µ÷ÊıÁĞ
-//Èç¹ûÊı×éÊÇµ¥µ÷µİÔö»òµ¥µ÷µİ¼õµÄ£¬ÄÇÃ´ËüÊÇ µ¥µ÷ µÄ¡£
+// 896. å•è°ƒæ•°åˆ—
+// å¦‚æœæ•°ç»„æ˜¯å•è°ƒé€’å¢æˆ–å•è°ƒé€’å‡çš„ï¼Œé‚£ä¹ˆå®ƒæ˜¯ å•è°ƒ çš„ã€‚
+
+// å¦‚æœå¯¹äºæ‰€æœ‰ i <= jï¼Œnums[i] <= nums[j]ï¼Œé‚£ä¹ˆæ•°ç»„ nums æ˜¯å•è°ƒé€’å¢çš„ã€‚ å¦‚æœå¯¹äºæ‰€æœ‰ i <= jï¼Œnums[i]> = nums[j]ï¼Œé‚£ä¹ˆæ•°ç»„ nums æ˜¯å•è°ƒé€’å‡çš„ã€‚
+
+// å½“ç»™å®šçš„æ•°ç»„ nums æ˜¯å•è°ƒæ•°ç»„æ—¶è¿”å› trueï¼Œå¦åˆ™è¿”å› falseã€‚
+
+
+// ç¤ºä¾‹ 1ï¼š 
+// è¾“å…¥ï¼šnums = [1,2,2,3]
+// è¾“å‡ºï¼štrue
 //
-//Èç¹û¶ÔÓÚËùÓĞ i <= j£¬nums[i] <= nums[j]£¬ÄÇÃ´Êı×é nums ÊÇµ¥µ÷µİÔöµÄ¡£ Èç¹û¶ÔÓÚËùÓĞ i <= j£¬nums[i] > = nums[j]£¬ÄÇÃ´Êı×é nums ÊÇµ¥µ÷µİ¼õµÄ¡£
+// ç¤ºä¾‹ 2ï¼š 
+// è¾“å…¥ï¼šnums = [6,5,4,4]
+// è¾“å‡ºï¼štrue
 //
-//µ±¸ø¶¨µÄÊı×é nums ÊÇµ¥µ÷Êı×éÊ±·µ»Ø true£¬·ñÔò·µ»Ø false¡£
-//
-//
-//
-//Ê¾Àı 1£º
-//
-//ÊäÈë£ºnums = [1, 2, 2, 3]
-//Êä³ö£ºtrue
-//Ê¾Àı 2£º
-//
-//ÊäÈë£ºnums = [6, 5, 4, 4]
-//Êä³ö£ºtrue
-//Ê¾Àı 3£º
-//
-//ÊäÈë£ºnums = [1, 3, 2]
-//Êä³ö£ºfalse
-//
-//
-//ÌáÊ¾£º
-//
-//1 <= nums.length <= 105
-//- 105 <= nums[i] <= 105
+// ç¤ºä¾‹ 3ï¼š 
+// è¾“å…¥ï¼šnums = [1,3,2]
+// è¾“å‡ºï¼šfalse
+ 
+
+// æç¤ºï¼š
+
+// 1 <= nums.length <= 10^5
+// -10^5 <= nums[i] <= 10^5
 #include "LeetCode896.h"
 bool Solution::isMonotonic(vector<int>& nums) {
 	vector<int> v1, v2;
@@ -39,45 +37,40 @@ bool Solution::isMonotonic(vector<int>& nums) {
 	}
 	return false;
 };
-//·½·¨Ò»£ºÁ½´Î±éÀú
-//±éÀúÁ½´ÎÊı×é£¬·Ö±ğÅĞ¶ÏÆäÊÇ·ñÎªµ¥µ÷µİÔö»òµ¥µ÷µİ¼õ¡£
-//class Solution {
-//public:
-//	bool isMonotonic(vector<int>& nums) {
-//		return is_sorted(nums.begin(), nums.end()) || is_sorted(nums.rbegin(), nums.rend());
-//	}
-//};
-//¸´ÔÓ¶È·ÖÎö
-//
-//Ê±¼ä¸´ÔÓ¶È£ºO(n)O(n)O(n)£¬ÆäÖĞ nnn ÊÇÊı×é nums\textit{ nums }nums µÄ³¤¶È¡£
-//
-//¿Õ¼ä¸´ÔÓ¶È£ºO(1)O(1)O(1)¡£
-//
-//·½·¨¶ş£ºÒ»´Î±éÀú
-//±éÀúÊı×é nums\textit{ nums }nums£¬Èô¼ÈÓöµ½ÁË nums[i] > nums[i + 1]\textit{ nums }[i] > \textit{ nums }[i + 1]nums[i] > nums[i + 1] ÓÖÓöµ½ÁË nums[i¡ä] < nums[i¡ä + 1]\textit{ nums }[i']<\textit{nums}[i' + 1]nums[i
-//	¡ä
-//] < nums[i
-//	¡ä
-//	+ 1]£¬ÔòËµÃ÷ nums\textit{ nums }nums ¼È²»ÊÇµ¥µ÷µİÔöµÄ£¬Ò²²»ÊÇµ¥µ÷µİ¼õµÄ¡£
-//	class Solution {
-//	public:
-//		bool isMonotonic(vector<int>& nums) {
-//			bool inc = true, dec = true;
-//			int n = nums.size();
-//			for (int i = 0; i < n - 1; ++i) {
-//				if (nums[i] > nums[i + 1]) {
-//					inc = false;
-//				}
-//				if (nums[i] < nums[i + 1]) {
-//					dec = false;
-//				}
-//			}
-//			return inc || dec;
-//		}
-//};
-//¸´ÔÓ¶È·ÖÎö
-//
-//Ê±¼ä¸´ÔÓ¶È£ºO(n)O(n)O(n)£¬ÆäÖĞ nnn ÊÇÊı×é nums\textit{ nums }nums µÄ³¤¶È¡£
-//
-//¿Õ¼ä¸´ÔÓ¶È£ºO(1)O(1)O(1)¡£
- 
+// æ–¹æ³•ä¸€ï¼šä¸¤æ¬¡éå†
+// éå†ä¸¤æ¬¡æ•°ç»„ï¼Œåˆ†åˆ«åˆ¤æ–­å…¶æ˜¯å¦ä¸ºå•è°ƒé€’å¢æˆ–å•è°ƒé€’å‡ã€‚
+// class Solution {
+// public:
+//     bool isMonotonic(vector<int>& nums) {
+//         return is_sorted(nums.begin(), nums.end()) || is_sorted(nums.rbegin(), nums.rend());
+//     }
+// };
+// å¤æ‚åº¦åˆ†æ
+
+// æ—¶é—´å¤æ‚åº¦ï¼šO(n)ï¼Œå…¶ä¸­ n æ˜¯æ•°ç»„ nums çš„é•¿åº¦ã€‚
+
+// ç©ºé—´å¤æ‚åº¦ï¼šO(1)ã€‚
+
+// æ–¹æ³•äºŒï¼šä¸€æ¬¡éå†
+// éå†æ•°ç»„ numsï¼Œè‹¥æ—¢é‡åˆ°äº† nums[i]>nums[i+1] åˆé‡åˆ°äº† nums[iâ€²]<nums[iâ€²+1]ï¼Œåˆ™è¯´æ˜ nums æ—¢ä¸æ˜¯å•è°ƒé€’å¢çš„ï¼Œä¹Ÿä¸æ˜¯å•è°ƒé€’å‡çš„ã€‚
+// class Solution {
+// public:
+//     bool isMonotonic(vector<int>& nums) {
+//         bool inc = true, dec = true;
+//         int n = nums.size();
+//         for (int i = 0; i < n - 1; ++i) {
+//             if (nums[i] > nums[i + 1]) {
+//                 inc = false;
+//             }
+//             if (nums[i] < nums[i + 1]) {
+//                 dec = false;
+//             }
+//         }
+//         return inc || dec;
+//     }
+// };
+// å¤æ‚åº¦åˆ†æ
+
+// æ—¶é—´å¤æ‚åº¦ï¼šO(n)ï¼Œå…¶ä¸­ n æ˜¯æ•°ç»„ nums çš„é•¿åº¦ã€‚
+
+// ç©ºé—´å¤æ‚åº¦ï¼šO(1)ã€‚ 

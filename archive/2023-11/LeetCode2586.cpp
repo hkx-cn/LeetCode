@@ -1,39 +1,37 @@
-//2586. ͳ�Ʒ�Χ�ڵ�Ԫ���ַ�����
-//����һ���±�� 0 ��ʼ���ַ������� words ������������left �� right ��
+// 2586. 统计范围内的元音字符串数
+// 给你一个下标从 0 开始的字符串数组 words 和两个整数：left 和 right 。
+
+// 如果字符串以元音字母开头并以元音字母结尾，那么该字符串就是一个 元音字符串 ，其中元音字母是 'a'、'e'、'i'、'o'、'u' 。
+
+// 返回 words[i] 是元音字符串的数目，其中 i 在闭区间 [left, right] 内。
+
+ 
+
+// 示例 1： 
+// 输入：words = ["are","amy","u"], left = 0, right = 2
+// 输出：2
+// 解释：
+// - "are" 是一个元音字符串，因为它以 'a' 开头并以 'e' 结尾。
+// - "amy" 不是元音字符串，因为它没有以元音字母结尾。
+// - "u" 是一个元音字符串，因为它以 'u' 开头并以 'u' 结尾。
+// 在上述范围中的元音字符串数目为 2 。
 //
-//����ַ�����Ԫ����ĸ��ͷ����Ԫ����ĸ��β����ô���ַ�������һ�� Ԫ���ַ��� ������Ԫ����ĸ�� 'a'��'e'��'i'��'o'��'u' ��
-//
-//���� words[i] ��Ԫ���ַ�������Ŀ������ i �ڱ�����[left, right] �ڡ�
-//
-//
-//
-//ʾ�� 1��
-//
-//���룺words = ["are", "amy", "u"], left = 0, right = 2
-//�����2
-//���ͣ�
-//- "are" ��һ��Ԫ���ַ�������Ϊ���� 'a' ��ͷ���� 'e' ��β��
-//- "amy" ����Ԫ���ַ�������Ϊ��û����Ԫ����ĸ��β��
-//- "u" ��һ��Ԫ���ַ�������Ϊ���� 'u' ��ͷ���� 'u' ��β��
-//��������Χ�е�Ԫ���ַ�����ĿΪ 2 ��
-//ʾ�� 2��
-//
-//���룺words = ["hey", "aeo", "mu", "ooo", "artro"], left = 1, right = 4
-//�����3
-//���ͣ�
-//- "aeo" ��һ��Ԫ���ַ�������Ϊ���� 'a' ��ͷ���� 'o' ��β��
-//- "mu" ����Ԫ���ַ�������Ϊ��û����Ԫ����ĸ��ͷ��
-//- "ooo" ��һ��Ԫ���ַ�������Ϊ���� 'o' ��ͷ���� 'o' ��β��
-//- "artro" ��һ��Ԫ���ַ�������Ϊ���� 'a' ��ͷ���� 'o' ��β��
-//��������Χ�е�Ԫ���ַ�����ĿΪ 3 ��
-//
-//
-//��ʾ��
-//
-//1 <= words.length <= 1000
-//1 <= words[i].length <= 10
-//words[i] ����СдӢ����ĸ���
-//0 <= left <= right < words.length
+// 示例 2： 
+// 输入：words = ["hey","aeo","mu","ooo","artro"], left = 1, right = 4
+// 输出：3
+// 解释：
+// - "aeo" 是一个元音字符串，因为它以 'a' 开头并以 'o' 结尾。
+// - "mu" 不是元音字符串，因为它没有以元音字母开头。
+// - "ooo" 是一个元音字符串，因为它以 'o' 开头并以 'o' 结尾。
+// - "artro" 是一个元音字符串，因为它以 'a' 开头并以 'o' 结尾。
+// 在上述范围中的元音字符串数目为 3 。
+ 
+
+// 提示： 
+// 1 <= words.length <= 1000
+// 1 <= words[i].length <= 10
+// words[i] 仅由小写英文字母组成
+// 0 <= left <= right < words.length
 #include"LeetCode2586.h"
 int Solution::vowelStrings(vector<string>& words, int left, int right) {
 	int result = 0;
@@ -49,28 +47,28 @@ int Solution::vowelStrings(vector<string>& words, int left, int right) {
 	}
 	return result;
 };
-//����һ��ö�ٷ�Χ�ڵ��ַ���
-//˼·���㷨
-//
-//������[left, right][\textit{ left }, \textit{ right }][left, right] ��Χ��ö�ٸ����ַ������� words\textit{ words }words �е��ַ��������ж����Ƿ���Ԫ����ĸ��ͷ��������Ԫ����ĸ��β��
-//
-//Ϊ�˷����жϣ����ǿ��Խ�Ԫ����ĸ aeiou\text{ aeiou }aeiou ����һ����ϣ�����С�����һ��������ֻ��Ҫ�ж��ַ��������ַ���β�ַ��Ƿ���ڹ�ϣ�����г��ּ��ɡ�
-//class Solution {
-//public:
-//	int vowelStrings(vector<string>& words, int left, int right) {
-//		unordered_set<char> vowels = { 'a', 'e', 'i', 'o', 'u' };
-//		int ans = 0;
-//		for (int i = left; i <= right; ++i) {
-//			const string& word = words[i];
-//			if (vowels.count(word[0]) && vowels.count(word.back())) {
-//				++ans;
-//			}
-//		}
-//		return ans;
-//	}
-//};
-//���Ӷȷ���
-//
-//ʱ�临�Ӷȣ�O(n + �O���O)O(n + | \Sigma | )O(n + �O���O)������ nnn ������ words\textit{ words }words �ĳ��ȣ���\Sigma�� ��Ԫ���ļ��ϣ��ڱ����� �O���O = 5 | \Sigma | = 5�O���O = 5��
-//
-//�ռ临�Ӷȣ�O(�O���O)O(| \Sigma | )O(�O���O)����Ϊ��ϣ������Ҫʹ�õĿռ䡣
+// 方法一：枚举范围内的字符串
+// 思路与算法
+
+// 我们在 [left,right] 范围内枚举给定字符串数组 words 中的字符串，并判断其是否以元音字母开头，并且以元音字母结尾。
+
+// 为了方便判断，我们可以将元音字母 aeiou 存入一个哈希集合中。这样一来，我们只需要判断字符串的首字符和尾字符是否均在哈希集合中出现即可。
+// class Solution {
+// public:
+//     int vowelStrings(vector<string>& words, int left, int right) {
+//         unordered_set<char> vowels = {'a', 'e', 'i', 'o', 'u'};
+//         int ans = 0;
+//         for (int i = left; i <= right; ++i) {
+//             const string& word = words[i];
+//             if (vowels.count(word[0]) && vowels.count(word.back())) {
+//                 ++ans;
+//             }
+//         }
+//         return ans;
+//     }
+// };
+// 复杂度分析
+
+// 时间复杂度：O(n+∣Σ∣)，其中 n 是数组 words 的长度，Σ 是元音的集合，在本题中 ∣Σ∣=5。
+
+// 空间复杂度：O(∣Σ∣)，即为哈希集合需要使用的空间。 

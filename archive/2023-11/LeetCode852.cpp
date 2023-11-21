@@ -10,24 +10,23 @@
 //
 //
 //
-//	示例 1：
-//
+//	示例 1： 
 //	输入：arr = [0, 1, 0]
 //	输出：1
-//	示例 2：
 //
+//	示例 2： 
 //	输入：arr = [0, 2, 1, 0]
 //	输出：1
-//	示例 3：
 //
+//	示例 3： 
 //	输入：arr = [0, 10, 5, 2]
 //	输出：1
 //
 //
 //	提示：
 //
-//	3 <= arr.length <= 105
-//	0 <= arr[i] <= 106
+//	3 <= arr.length <= 10^5
+//	0 <= arr[i] <= 10^6
 //	题目数据保证 arr 是一个山脉数组
 #include "LeetCode852.h"
 int Solution::peakIndexInMountainArray(vector<int>& arr) {
@@ -61,68 +60,19 @@ int Solution::peakIndexInMountainArray(vector<int>& arr) {
 //前言
 //虽然题目描述中说明了「我们可以返回任何满足条件的下标 iii」，但由于条件为：
 //
-//arr0<arr1<⋯arri−1<arri>arri + 1>⋯>arrn−1\textit{ arr }_0 < \textit{ arr }_1 < \cdots \textit{ arr }_{ i - 1 } < \textit{ arr }_i > \textit{ arr }_{ i + 1 } > \cdots > \textit{ arr }_{ n - 1 }
-//arr
-//0
-//​
-//<arr
-//	1
-//	​
-//	<⋯arr
-//	i−1
-//	​
-//	<arr
-//	i
-//	​
-//	>arr
-//	i + 1
-//	​
-//	>⋯>arr
-//	n−1
-//	​
-//
-//	其中 nnn 是数组 arr\textit{ arr }arr 的长度，这说明 arri\textit{ arr }_iarr
-//	i
-//	​
-//	是数组中的最大值，并且是唯一的最大值。
-//
-//	因此，我们需要找出的下标 iii 一定是唯一的。
-//
-//	方法一：枚举
-//	思路与算法
-//
-//	我们可以对数组 arr\textit{ arr }arr 进行一次遍历。
-//
-//	当我们遍历到下标 iii 时，如果有 arri−1<arri>arri + 1\textit{ arr }_{ i - 1 } < \textit{ arr }_i > \textit{ arr }_{ i + 1 }arr
-//	i−1
-//	​
-//	<arr
-//	i
-//	​
-//	>arr
-//	i + 1
-//	​
-//	，那么 iii 就是我们需要找出的下标。
-//
-//	更简单地，我们只需要让 iii 满足 arri > arri + 1\textit{ arr }_i > \textit{ arr }_{ i + 1 }arr
-//	i
-//	​
-// > arr
-//	i + 1
-//	​
-//	即可。在遍历的过程中，我们最先遍历到的满足 arri > arri + 1\textit{ arr }_i > \textit{ arr }_{ i + 1 }arr
-//	i
-//	​
-// > arr
-//	i + 1
-//	​
-//	的下标 iii 一定也满足 arri−1 < arri\textit{ arr }_{ i - 1 } < \textit{ arr }_iarr
-//	i−1
-//	​
-//	< arr
-//	i
-//	​
-//	。
+//arr0<arr1<⋯arri−1<arri>arri + 1>⋯>arrn−1
+// 其中 n 是数组 arr 的长度，这说明 arri 是数组中的最大值，并且是唯一的最大值。
+
+// 因此，我们需要找出的下标 i 一定是唯一的。
+
+// 方法一：枚举
+// 思路与算法
+
+// 我们可以对数组 arr 进行一次遍历。
+
+// 当我们遍历到下标 i 时，如果有 arri−1<arri>arri+1，那么 i 就是我们需要找出的下标。
+
+// 更简单地，我们只需要让 i 满足 arri > arri+1 即可。在遍历的过程中，我们最先遍历到的满足 arri > arri + 1 的下标 i 一定也满足 arri−1 < arri。
 //class Solution {
 //public:
 //	int peakIndexInMountainArray(vector<int>& arr) {
@@ -139,53 +89,20 @@ int Solution::peakIndexInMountainArray(vector<int>& arr) {
 //};
 //复杂度分析
 //
-//时间复杂度：O(n)O(n)O(n)，其中 nnn 是数组 arr\textit{ arr }arr 的长度。我们最多需要对数组 arr\textit{ arr }arr 进行一次遍历。
+//时间复杂度：O(n)，其中 n 是数组 arr 的长度。我们最多需要对数组 arr 进行一次遍历。
 //
-//空间复杂度：O(1)O(1)O(1)。
+//空间复杂度：O(1)。
 //
 //方法二：二分查找
 //思路与算法
 //
-//记满足题目要求的下标 iii 为 iansi_\textit{ ans }i
-//ans
-//​
-//。我们可以发现：
+//记满足题目要求的下标 i 为 ians。我们可以发现：
 //
-//当 i < iansi < i_\textit{ ans }i < i
-//	ans
-//	​
-//	时，arri < arri + 1\textit{ arr }_i < \textit{ arr }_{ i + 1 }arr
-//	i
-//	​
-//	< arr
-//	i + 1
-//	​
-//	恒成立；
+//当 i < ians 时，arri < arri+1 恒成立；
 //
-//	当 i≥iansi \geq i_\textit{ ans }i≥i
-//	ans
-//	​
-//	时，arri > arri + 1\textit{ arr }_i > \textit{ arr }_{ i + 1 }arr
-//	i
-//	​
-//	> arr
-//	i + 1
-//	​
-//	恒成立。
+//当 i≥ians 时，arri > arri+1 恒成立。
 //
-//	这与方法一的遍历过程也是一致的，因此 iansi_\textit{ ans }i
-//	ans
-//	​
-//	即为「最小的满足 arri > arri + 1\textit{ arr }_i > \textit{ arr }_{ i + 1 }arr
-//	i
-//	​
-//> arr
-//i + 1
-//​
-//的下标 iii」，我们可以用二分查找的方法来找出 iansi_\textit{ ans }i
-//ans
-//​
-//。
+//这与方法一的遍历过程也是一致的，因此 ians 即为「最小的满足 arri > arri+1 的下标 i」，我们可以用二分查找的方法来找出 ians 。
 //class Solution {
 //public:
 //	int peakIndexInMountainArray(vector<int>& arr) {
@@ -206,6 +123,6 @@ int Solution::peakIndexInMountainArray(vector<int>& arr) {
 //};
 //复杂度分析
 //
-//时间复杂度：O(log⁡n)O(\log n)O(logn)，其中 nnn 是数组 arr\textit{ arr }arr 的长度。我们需要进行二分查找的次数为 O(log⁡n)O(\log n)O(logn)。
+//时间复杂度：O(log⁡n)，其中 n 是数组 arr 的长度。我们需要进行二分查找的次数为 O(log⁡n)。
 //
-//空间复杂度：O(1)O(1)O(1)。
+//空间复杂度：O(1)。

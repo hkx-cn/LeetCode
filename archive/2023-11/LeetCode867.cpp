@@ -1,29 +1,22 @@
-//867. ×ªÖÃ¾ØÕó
-//¸øÄãÒ»¸ö¶şÎ¬ÕûÊıÊı×é matrix£¬ ·µ»Ø matrix µÄ ×ªÖÃ¾ØÕó ¡£
+// 867. è½¬ç½®çŸ©é˜µ
+// ç»™ä½ ä¸€ä¸ªäºŒç»´æ•´æ•°æ•°ç»„ matrixï¼Œ è¿”å› matrix çš„ è½¬ç½®çŸ©é˜µ ã€‚
+
+// çŸ©é˜µçš„ è½¬ç½® æ˜¯æŒ‡å°†çŸ©é˜µçš„ä¸»å¯¹è§’çº¿ç¿»è½¬ï¼Œäº¤æ¢çŸ©é˜µçš„è¡Œç´¢å¼•ä¸åˆ—ç´¢å¼•ã€‚
+// ç¤ºä¾‹ 1ï¼š 
+// è¾“å…¥ï¼šmatrix = [[1,2,3],[4,5,6],[7,8,9]]
+// è¾“å‡ºï¼š[[1,4,7],[2,5,8],[3,6,9]]
 //
-//¾ØÕóµÄ ×ªÖÃ ÊÇÖ¸½«¾ØÕóµÄÖ÷¶Ô½ÇÏß·­×ª£¬½»»»¾ØÕóµÄĞĞË÷ÒıÓëÁĞË÷Òı¡£
-//
-//
-//
-//
-//
-//Ê¾Àı 1£º
-//
-//ÊäÈë£ºmatrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-//Êä³ö£º [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
-//Ê¾Àı 2£º
-//
-//ÊäÈë£ºmatrix = [[1, 2, 3], [4, 5, 6]]
-//Êä³ö£º [[1, 4], [2, 5], [3, 6]]
-//
-//
-//ÌáÊ¾£º
-//
-//m == matrix.length
-//n == matrix[i].length
-//1 <= m, n <= 1000
-//1 <= m * n <= 105
-//- 109 <= matrix[i][j] <= 109
+// ç¤ºä¾‹ 2ï¼š 
+// è¾“å…¥ï¼šmatrix = [[1,2,3],[4,5,6]]
+// è¾“å‡ºï¼š[[1,4],[2,5],[3,6]]
+ 
+
+// æç¤ºï¼š 
+// m == matrix.length
+// n == matrix[i].length
+// 1 <= m, n <= 1000
+// 1 <= m * n <= 10^5
+// -10^9 <= matrix[i][j] <= 10^9
 #include "LeetCode867.h"
 vector<vector<int>> Solution::transpose(vector<vector<int>>& matrix) {
 	int x = matrix.size();
@@ -38,29 +31,25 @@ vector<vector<int>> Solution::transpose(vector<vector<int>>& matrix) {
 	}
 	return result;
 };
-//·½·¨Ò»£ºÄ£Äâ
-//Èç¹û¾ØÕó matrix\textit{ matrix }matrix Îª mmm ĞĞ nnn ÁĞ£¬Ôò×ªÖÃºóµÄ¾ØÕó matrixT\textit{ matrix }^ \text{ T }matrix
-//T
-//Îª nnn ĞĞ mmm ÁĞ£¬ÇÒ¶ÔÈÎÒâ 0¡Üi < m0 \le i < m0¡Üi < m ºÍ 0¡Üj < n0 \le j < n0¡Üj < n£¬¶¼ÓĞ matrixT[j][i] = matrix[i][j]\textit{ matrix } ^ \text{ T }[j][i] = \textit{ matrix }[i][j]matrix
-//	T
-//	[j][i] = matrix[i][j]¡£
-//
-//	´´½¨Ò»¸ö nnn ĞĞ mmm ÁĞµÄĞÂ¾ØÕó£¬¸ù¾İ×ªÖÃµÄ¹æÔò¶ÔĞÂ¾ØÕóÖĞµÄÃ¿¸öÔªËØ¸³Öµ£¬ÔòĞÂ¾ØÕóÎª×ªÖÃºóµÄ¾ØÕó¡£
-//	class Solution {
-//	public:
-//		vector<vector<int>> transpose(vector<vector<int>>& matrix) {
-//			int m = matrix.size(), n = matrix[0].size();
-//			vector<vector<int>> transposed(n, vector<int>(m));
-//			for (int i = 0; i < m; i++) {
-//				for (int j = 0; j < n; j++) {
-//					transposed[j][i] = matrix[i][j];
-//				}
-//			}
-//			return transposed;
-//		}
-//};
-//¸´ÔÓ¶È·ÖÎö
-//
-//Ê±¼ä¸´ÔÓ¶È£ºO(mn)O(mn)O(mn)£¬ÆäÖĞ mmm ºÍ nnn ·Ö±ğÊÇ¾ØÕó matrix\textit{ matrix }matrix µÄĞĞÊıºÍÁĞÊı¡£ĞèÒª±éÀúÕû¸ö¾ØÕó£¬²¢¶Ô×ªÖÃºóµÄ¾ØÕó½øĞĞ¸³Öµ²Ù×÷¡£
-//
-//¿Õ¼ä¸´ÔÓ¶È£ºO(1)O(1)O(1)¡£³ıÁË·µ»ØÖµÒÔÍâ£¬¶îÍâÊ¹ÓÃµÄ¿Õ¼äÎª³£Êı¡£
+// æ–¹æ³•ä¸€ï¼šæ¨¡æ‹Ÿ
+// å¦‚æœçŸ©é˜µ matrix ä¸º m è¡Œ n åˆ—ï¼Œåˆ™è½¬ç½®åçš„çŸ©é˜µ matrixT ä¸º n è¡Œ m åˆ—ï¼Œä¸”å¯¹ä»»æ„ 0â‰¤i<m å’Œ 0â‰¤j<nï¼Œéƒ½æœ‰ matrixT[j][i]=matrix[i][j]ã€‚
+
+// åˆ›å»ºä¸€ä¸ª n è¡Œ m åˆ—çš„æ–°çŸ©é˜µï¼Œæ ¹æ®è½¬ç½®çš„è§„åˆ™å¯¹æ–°çŸ©é˜µä¸­çš„æ¯ä¸ªå…ƒç´ èµ‹å€¼ï¼Œåˆ™æ–°çŸ©é˜µä¸ºè½¬ç½®åçš„çŸ©é˜µã€‚
+// class Solution {
+// public:
+//     vector<vector<int>> transpose(vector<vector<int>>& matrix) {
+//         int m = matrix.size(), n = matrix[0].size();
+//         vector<vector<int>> transposed(n, vector<int>(m));
+//         for (int i = 0; i < m; i++) {
+//             for (int j = 0; j < n; j++) {
+//                 transposed[j][i] = matrix[i][j];
+//             }
+//         }
+//         return transposed;
+//     }
+// };
+// å¤æ‚åº¦åˆ†æ
+
+// æ—¶é—´å¤æ‚åº¦ï¼šO(mn)ï¼Œå…¶ä¸­ m å’Œ n åˆ†åˆ«æ˜¯çŸ©é˜µ matrix çš„è¡Œæ•°å’Œåˆ—æ•°ã€‚éœ€è¦éå†æ•´ä¸ªçŸ©é˜µï¼Œå¹¶å¯¹è½¬ç½®åçš„çŸ©é˜µè¿›è¡Œèµ‹å€¼æ“ä½œã€‚
+
+// ç©ºé—´å¤æ‚åº¦ï¼šO(1)ã€‚é™¤äº†è¿”å›å€¼ä»¥å¤–ï¼Œé¢å¤–ä½¿ç”¨çš„ç©ºé—´ä¸ºå¸¸æ•°ã€‚ 

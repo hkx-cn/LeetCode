@@ -5,30 +5,29 @@
 //
 //
 //
-//示例 1：
-//
+//示例 1： 
 //输入 : letters = ["c", "f", "j"]，target = "a"
 //输出 : "c"
 //解释：letters 中字典上比 'a' 大的最小字符是 'c'。
-//示例 2 :
 //
-//	输入 : letters = ["c", "f", "j"], target = "c"
-//	输出 : "f"
-//	解释：letters 中字典顺序上大于 'c' 的最小字符是 'f'。
-//	示例 3 :
+//示例 2 : 
+//输入 : letters = ["c", "f", "j"], target = "c"
+//输出 : "f"
+//解释：letters 中字典顺序上大于 'c' 的最小字符是 'f'。
 //
-//	输入 : letters = ["x", "x", "y", "y"], target = "z"
-//	输出 : "x"
-//	解释：letters 中没有一个字符在字典上大于 'z'，所以我们返回 letters[0]。
-//
-//
-//	提示：
-//
-//	2 <= letters.length <= 104
-//	letters[i] 是一个小写字母
-//	letters 按非递减顺序排序
-//	letters 最少包含两个不同的字母
-//	target 是一个小写字母
+//示例 3 : 
+//输入 : letters = ["x", "x", "y", "y"], target = "z"
+//输出 : "x"
+//解释：letters 中没有一个字符在字典上大于 'z'，所以我们返回 letters[0]。
+
+
+//提示：
+
+//2 <= letters.length <= 10^4
+//letters[i] 是一个小写字母
+//letters 按非递减顺序排序
+//letters 最少包含两个不同的字母
+//target 是一个小写字母
 #include"LeetCode744.h"
 char Solution::nextGreatestLetter(vector<char>& letters, char target) {
 	int left = 0, right = letters.size() - 1, mid = 0;
@@ -68,9 +67,9 @@ char Solution::nextGreatestLetter(vector<char>& letters, char target) {
 //};
 //复杂度分析
 //
-//时间复杂度：O(n)O(n)O(n)，其中 nnn 是列表 letters\textit{ letters }letters 的长度。需要遍历列表一次寻找比目标字母大的最小字母。
+//时间复杂度：O(n)，其中 n 是列表 letters 的长度。需要遍历列表一次寻找比目标字母大的最小字母。
 //
-//空间复杂度：O(1)O(1)O(1)。
+//空间复杂度：O(1)。
 //
 //方法二：二分查找
 //利用列表有序的特点，可以使用二分查找降低时间复杂度。
@@ -86,6 +85,6 @@ char Solution::nextGreatestLetter(vector<char>& letters, char target) {
 //};
 //复杂度分析
 //
-//时间复杂度：O(log⁡n)O(\log n)O(logn)，其中 nnn 是列表 letters\textit{ letters }letters 的长度。二分查找的时间复杂度是 O(log⁡n)O(\log n)O(logn)。
+//时间复杂度：O(log⁡n)，其中 n 是列表 letters 的长度。二分查找的时间复杂度是 O(log⁡n)。
 //
-//空间复杂度：O(1)O(1)O(1)。 
+//空间复杂度：O(1)。
