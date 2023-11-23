@@ -33,45 +33,45 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-ListNode *Solution::addTwoNumbers(ListNode *l1, ListNode *l2)
-{
-    ListNode *result = new ListNode, *next = result;
-    int sum = -1;
-    bool add = false;
-    while (l1 != nullptr || l2 != nullptr)
-    {
-        if (add)
-            sum = 1;
-        else
-            sum = 0;
+// ListNode *Solution::addTwoNumbers(ListNode *l1, ListNode *l2)
+// {
+//     ListNode *result = new ListNode, *next = result;
+//     int sum = -1;
+//     bool add = false;
+//     while (l1 != nullptr || l2 != nullptr)
+//     {
+//         if (add)
+//             sum = 1;
+//         else
+//             sum = 0;
 
-        if (l1 != nullptr)
-        {
-            sum += l1->val;
-            l1 = l1->next;
-        }
-        if (l2 != nullptr)
-        {
-            sum += l2->val;
-            l2 = l2->next;
-        }
-        if (sum > 9)
-        {
-            add = true;
-            sum -= 10;
-        }
-        else
-        {
-            add = false;
-        }
-        next->next = new ListNode(sum);
-        next = next->next;
-    }
-    if (add)
-        next->next = new ListNode(1);
+//         if (l1 != nullptr)
+//         {
+//             sum += l1->val;
+//             l1 = l1->next;
+//         }
+//         if (l2 != nullptr)
+//         {
+//             sum += l2->val;
+//             l2 = l2->next;
+//         }
+//         if (sum > 9)
+//         {
+//             add = true;
+//             sum -= 10;
+//         }
+//         else
+//         {
+//             add = false;
+//         }
+//         next->next = new ListNode(sum);
+//         next = next->next;
+//     }
+//     if (add)
+//         next->next = new ListNode(1);
 
-    return result->next;
-};
+//     return result->next;
+// };
 // 方法一：模拟
 // 思路与算法
 

@@ -13,10 +13,14 @@ project("LeetCode")
 
 include_directories(archive/2023-11)
 
+# add_subdirectory(archive/2023-11)
+
 aux_source_directory(. src)
 
-# 将源代码添加到此项目的可执行文件。 
-add_executable(LeetCode ${src})
+aux_source_directory(archive/2023-11 arc_src)
+
+# 将源代码添加到此项目的可执行文件。
+add_executable(LeetCode ${src} ${arc_src}) 
 
 if(CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET LeetCode PROPERTY CXX_STANDARD 20)
