@@ -17,25 +17,25 @@
 // n 将在[1, 10000]之间。
 // nums 的每个元素都将在[-9999, 9999]之间。
 #include "LeetCode704.h"
-int Solution::search(vector<int>& nums, int target) {
-	int left = 0, right = nums.size() - 1;
-	while (left <= right)
-	{
-		if (nums[(left + right) / 2] == target)
-		{
-			return (left + right) / 2;
-		}
-		else if (nums[(left + right) / 2] > target)
-		{
-			right = (left + right) / 2 - 1;
-		}
-		else if (nums[(left + right) / 2] < target)
-		{
-			left = (left + right) / 2 + 1;
-		}
-	}
-	return -1;
-};
+// int Solution::search(vector<int>& nums, int target) {
+// 	int left = 0, right = nums.size() - 1;
+// 	while (left <= right)
+// 	{
+// 		if (nums[(left + right) / 2] == target)
+// 		{
+// 			return (left + right) / 2;
+// 		}
+// 		else if (nums[(left + right) / 2] > target)
+// 		{
+// 			right = (left + right) / 2 - 1;
+// 		}
+// 		else if (nums[(left + right) / 2] < target)
+// 		{
+// 			left = (left + right) / 2 + 1;
+// 		}
+// 	}
+// 	return -1;
+// };
 //方法一：二分查找
 //在升序数组 nums 中寻找目标值 target，对于特定下标 i，比较 nums[i] 和 target 的大小：
 //

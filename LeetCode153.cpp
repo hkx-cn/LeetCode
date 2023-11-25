@@ -28,25 +28,25 @@
 // nums 中的所有整数 互不相同
 // nums 原来是一个升序排序的数组，并进行了 1 至 n 次旋转
 #include "LeetCode153.h"
-int Solution::findMin(vector<int> &nums)
-{
-    int left = 0, right = nums.size() - 1, mid = -1;
-    if (nums[0] <= nums[nums.size() - 1])
-        return nums[0];
-    while (left <= right)
-    {
-        mid = left + (right - left + 1) / 2;
-        if (nums[left] < nums[mid])
-            left = mid;
-        else if (nums[mid] < nums[right])
-            right = mid;
-        else if (nums[left] >= nums[mid])
-            left = mid + 1;
-        else if (nums[mid] >= nums[right])
-            right = mid;
-    }
-    return nums[right];
-};
+// int Solution::findMin(vector<int> &nums)
+// {
+//     int left = 0, right = nums.size() - 1, mid = -1;
+//     if (nums[0] <= nums[nums.size() - 1])
+//         return nums[0];
+//     while (left <= right)
+//     {
+//         mid = left + (right - left + 1) / 2;
+//         if (nums[left] < nums[mid])
+//             left = mid;
+//         else if (nums[mid] < nums[right])
+//             right = mid;
+//         else if (nums[left] >= nums[mid])
+//             left = mid + 1;
+//         else if (nums[mid] >= nums[right])
+//             right = mid;
+//     }
+//     return nums[right];
+// };
 // 方法一：二分查找
 // 思路与算法
 

@@ -1,10 +1,10 @@
 ﻿#include "LeetCodeMain.h"
-#include "LeetCode276.h"
+#include "LeetCode154.h"
 
 int main()
 {
 	Solution solution;
-	vector<int> citations = {1, 2, 100};
-	int result = solution.hIndex(citations);
+	vector<int> arr = {1, 3, 5};
+	int result = solution.findMin(arr);
 	cin.get();
 }
