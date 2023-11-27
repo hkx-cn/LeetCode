@@ -1,10 +1,10 @@
 ﻿#include "LeetCodeMain.h"
-#include "LeetCode154.h"
+#include "LeetCode852.h"
 
 int main()
 {
 	Solution solution;
-	vector<int> arr = {1, 3, 5};
-	int result = solution.findMin(arr);
+	vector<int> arr = {3,5,3,2,0};
+	int result = solution.peakIndexInMountainArray(arr);
 	cin.get();
 }
