@@ -1,10 +1,20 @@
 ﻿#include "LeetCodeMain.h"
-#include "LeetCode852.h"
+#include "LeetCode528.h"
 
 int main()
 {
-	Solution solution;
-	vector<int> arr = {3,5,3,2,0};
-	int result = solution.peakIndexInMountainArray(arr);
+	vector<int> arr = {3, 14, 1, 7};
+	Solution solution = Solution(arr);
+	int result = solution.pickIndex();
+	result = solution.pickIndex();
+	result = solution.pickIndex();
+	result = solution.pickIndex();
+	result = solution.pickIndex();
+	result = solution.pickIndex();
+	result = solution.pickIndex();
+	result = solution.pickIndex();
+	result = solution.pickIndex();
+	result = solution.pickIndex();
+	result = solution.pickIndex();
 	cin.get();
 }
