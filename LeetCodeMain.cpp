@@ -1,20 +1,11 @@
-﻿#include "LeetCodeMain.h"
-#include "LeetCode528.h"
+﻿#include "LeetCodeMain.hpp"
+#include "LeetCode88.hpp"
 
 int main()
 {
-	vector<int> arr = {3, 14, 1, 7};
-	Solution solution = Solution(arr);
-	int result = solution.pickIndex();
-	result = solution.pickIndex();
-	result = solution.pickIndex();
-	result = solution.pickIndex();
-	result = solution.pickIndex();
-	result = solution.pickIndex();
-	result = solution.pickIndex();
-	result = solution.pickIndex();
-	result = solution.pickIndex();
-	result = solution.pickIndex();
-	result = solution.pickIndex();
+	vector<int> nums1 = {2, 0};
+	vector<int> nums2 = {1};
+	Solution solution;
+	solution.merge(nums1, 1, nums2, 1);
 	cin.get();
 }

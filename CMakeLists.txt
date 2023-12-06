@@ -16,7 +16,7 @@ aux_source_directory(. src)
 
 aux_source_directory(archive/2023-12 2023-12)
 
-add_executable(LeetCode ${src} ${2023-11} ${2023-12}) 
+add_executable(LeetCode ${src} ${2023-12}) 
 
 if(CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET LeetCode PROPERTY CXX_STANDARD 20)

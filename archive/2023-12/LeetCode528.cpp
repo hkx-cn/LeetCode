@@ -39,7 +39,7 @@
 // 1 <= w.length <= 10^4
 // 1 <= w[i] <= 10^5
 // pickIndex 将被调用不超过 10^4 次
-#include "LeetCode528.h"
+#include "LeetCode528.hpp"
 int Solution::pickIndex()
 {
     int rand = std::rand() % sum + 1;
