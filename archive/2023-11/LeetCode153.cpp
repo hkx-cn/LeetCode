@@ -27,7 +27,7 @@
 // -5000 <= nums[i] <= 5000
 // nums 中的所有整数 互不相同
 // nums 原来是一个升序排序的数组，并进行了 1 至 n 次旋转
-#include "LeetCode153.h"
+#include "LeetCode153.hpp"
 // int Solution::findMin(vector<int> &nums)
 // {
 //     int left = 0, right = nums.size() - 1, mid = -1;

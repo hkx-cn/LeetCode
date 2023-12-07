@@ -11,7 +11,7 @@
 // coordinates[i].length == 2
 // -10^4 <= coordinates[i][0], coordinates[i][1] <= 10^4
 // coordinates 中不含重复的点
-#include "LeetCode1232.h" 
+#include "LeetCode1232.hpp" 
 
 bool Solution::checkStraightLine(vector<vector<int>> &coordinates){
     int x = coordinates[1][0] - coordinates[0][0], y = coordinates[1][1] - coordinates[0][1];

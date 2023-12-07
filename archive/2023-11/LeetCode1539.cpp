@@ -21,7 +21,7 @@
 // 进阶：
 // 你可以设计一个时间复杂度小于 O(n) 的算法解决此问题吗？
 
-#include "LeetCode1539.h"
+#include "LeetCode1539.hpp"
 int Solution::findKthPositive(vector<int> &arr, int k)
 {
     // 数组            arr= [2,3,4,7,11]

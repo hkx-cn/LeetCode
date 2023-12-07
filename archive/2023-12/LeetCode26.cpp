@@ -27,26 +27,26 @@
 // 1 <= nums.length <= 3 * 10^4
 // -10^4 <= nums[i] <= 10^4
 // nums 已按 非严格递增 排列
-#include "LeetCode26.hpp"
+// #include "LeetCode26.hpp"
 
-int Solution::removeDuplicates(vector<int> &nums)
-{
-    int result = 1, tmp = nums[0];
-    for (size_t i = 1; i < nums.size(); i++)
-    {
-        if (nums[i] == tmp)
-        {
-            nums.erase(nums.begin() + i, nums.begin() + i + 1);
-            i--;
-        }
-        else
-        {
-            result++;
-            tmp = nums[i];
-        }
-    }
-    return result;
-};
+// int Solution::removeDuplicates(vector<int> &nums)
+// {
+//     int result = 1, tmp = nums[0];
+//     for (size_t i = 1; i < nums.size(); i++)
+//     {
+//         if (nums[i] == tmp)
+//         {
+//             nums.erase(nums.begin() + i, nums.begin() + i + 1);
+//             i--;
+//         }
+//         else
+//         {
+//             result++;
+//             tmp = nums[i];
+//         }
+//     }
+//     return result;
+// };
 // 方法一：双指针
 // 这道题目的要求是：对给定的有序数组 nums 删除重复元素，在删除重复元素之后，每个元素只出现一次，并返回新的长度，上述操作必须通过原地修改数组的方法，使用 O(1) 的空间复杂度完成。
 // 由于给定的数组 nums 是有序的，因此对于任意 i<j，如果 nums[i]=nums[j]，则对任意 i≤k≤j，必有 nums[i]=nums[k]=nums[j]，即相等的元素在数组中的下标一定是连续的。利用数组有序的特点，可以通过双指针的方法删除重复元素。

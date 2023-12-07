@@ -1,11 +1,10 @@
-﻿#include "LeetCodeMain.hpp"
-#include "LeetCode88.hpp"
+#include "LeetCodeMain.hpp" 
+// #include "LeetCode746.hpp"
 
 int main()
 {
-	vector<int> nums1 = {2, 0};
-	vector<int> nums2 = {1};
-	Solution solution;
-	solution.merge(nums1, 1, nums2, 1);
-	cin.get();
+	// vector<int> nums = {1, 100, 1, 1, 1, 100, 1, 1, 100, 1};
+	// Solution solution;
+	// solution.minCostClimbingStairs(nums);
+	// cin.get();
 }
