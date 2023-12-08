@@ -1,10 +1,10 @@
-#include "LeetCodeMain.hpp" 
-// #include "LeetCode746.hpp"
+#include "LeetCodeMain.hpp"
+#include "LeetCode121.hpp"
 
 int main()
 {
-	// vector<int> nums = {1, 100, 1, 1, 1, 100, 1, 1, 100, 1};
-	// Solution solution;
-	// solution.minCostClimbingStairs(nums);
-	// cin.get();
+	vector<int> nums = {2, 1, 2, 0, 1};
+	Solution solution;
+	int result = solution.maxProfit(nums);
+	// std::cin.get();
 }
