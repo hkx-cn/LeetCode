@@ -1,10 +1,7 @@
-#pragma once
-#ifndef LEETCODE21_H
-#define LEETCODE21_H
-
+#pragma once 
+ 
 // Definition for singly-linked list.
-struct ListNode
-{
+struct ListNode {
     int val;
     ListNode *next;
     ListNode() : val(0), next(nullptr) {}
@@ -14,7 +11,5 @@ struct ListNode
 
 class Solution {
 public:
-    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2);
-};
-
-#endif
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2);
+}; 
