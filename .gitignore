@@ -41,6 +41,7 @@ bld/
 .vscode/
 build/
 install/
+CMakePresets.json
 
 # Visual Studio 2017 auto generated files
 Generated\ Files/
