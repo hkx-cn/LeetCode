@@ -12,7 +12,7 @@
 // n == matrix[i].length
 // 1 <= m, n <= 10
 // -100 <= matrix[i][j] <= 100
-#include "LeetCode54.h"
+#include "LeetCode54.hpp"
 vector<int> Solution::spiralOrder(vector<vector<int>>& matrix) {
     vector<int> result;
     int xMin = 0, xMax = matrix[0].size() - 1, yMin = 0, yMax = matrix.size() - 1, x = 0, y = 0;
@@ -61,9 +61,7 @@ vector<int> Solution::spiralOrder(vector<vector<int>>& matrix) {
 };
 //方法一：模拟
 //可以模拟螺旋矩阵的路径。初始位置是矩阵的左上角，初始方向是向右，当路径超出界限或者进入之前访问过的位置时，顺时针旋转，进入下一个方向。
-//
 //判断路径是否进入之前访问过的位置需要使用一个与输入矩阵大小相同的辅助矩阵 visited，其中的每个元素表示该位置是否被访问过。当一个元素被访问时，将 visited 中的对应位置的元素设为已访问。
-//
 //如何判断路径是否结束？由于矩阵中的每个元素都被访问一次，因此路径的长度即为矩阵中的元素数量，当路径的长度达到矩阵中的元素数量时即为完整路径，将该路径返回。
 //class Solution {
 //private:
@@ -95,14 +93,11 @@ vector<int> Solution::spiralOrder(vector<vector<int>>& matrix) {
 //    }
 //};
 //复杂度分析
-//
 //时间复杂度：O(mn)，其中 m 和 n 分别是输入矩阵的行数和列数。矩阵中的每个元素都要被访问一次。
-//
 //空间复杂度：O(mn)。需要创建一个大小为 m×n 的矩阵 visited 记录每个位置是否被访问过。
 //
 //方法二：按层模拟
 //可以将矩阵看成若干层，首先输出最外层的元素，其次输出次外层的元素，直到输出最内层的元素。
-//
 //定义矩阵的第 k 层是到最近边界距离为 k 的所有顶点。例如，下图矩阵最外层元素都是第 1 层，次外层元素都是第 2 层，剩下的元素都是第 3 层。
 //[[1, 1, 1, 1, 1, 1, 1],
 //[1, 2, 2, 2, 2, 2, 1],
@@ -112,12 +107,9 @@ vector<int> Solution::spiralOrder(vector<vector<int>>& matrix) {
 //对于每层，从左上方开始以顺时针的顺序遍历所有元素。假设当前层的左上角位于(top, left)，右下角位于(bottom, right)，按照如下顺序遍历当前层的元素。
 //
 //1.从左到右遍历上侧元素，依次为(top, left) 到(top, right)。
-//
 //2.从上到下遍历右侧元素，依次为(top + 1, right) 到(bottom, right)。
-//
 //3.如果 left < right 且 top < bottom，则从右到左遍历下侧元素，依次为(bottom, right−1) 到(bottom, left + 1)，以及从下到上遍历左侧元素，依次为(bottom, left) 到(top + 1, left)。
-//
-//    遍历完当前层的元素之后，将 left 和 top 分别增加 1，将 right 和 bottom 分别减少 1，进入下一层继续遍历，直到遍历完所有元素为止。
+//遍历完当前层的元素之后，将 left 和 top 分别增加 1，将 right 和 bottom 分别减少 1，进入下一层继续遍历，直到遍历完所有元素为止。
 //class Solution {
 //public:
 //    vector<int> spiralOrder(vector<vector<int>>& matrix) {
@@ -152,7 +144,5 @@ vector<int> Solution::spiralOrder(vector<vector<int>>& matrix) {
 //    }
 //};
 //复杂度分析
-//
 //时间复杂度：O(mn)，其中 m 和 n 分别是输入矩阵的行数和列数。矩阵中的每个元素都要被访问一次。
-//
 //空间复杂度：O(1)。除了输出数组以外，空间复杂度是常数。

@@ -19,7 +19,7 @@
 // - 10^4 <= nums[i] <= 10^4
 // nums 为 无重复元素 的 升序 排列数组
 // - 10^4 <= target <= 10^4
-#include "LeetCode35.h"
+#include "LeetCode35.hpp"
 int Solution::searchInsert(vector<int> &nums, int target)
 {
 	// 二分查找目标值索引或被按顺序插入的位置
