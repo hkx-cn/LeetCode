@@ -1,6 +1,4 @@
-#pragma once
-#ifndef LEETCODE206_H
-#define LEETCODE206_H
+#pragma once 
 
 //  Definition for singly-linked list.
 struct ListNode
@@ -16,5 +14,4 @@ class Solution
 {
 public:
     ListNode *reverseList(ListNode *head);
-};
-#endif
+}; 

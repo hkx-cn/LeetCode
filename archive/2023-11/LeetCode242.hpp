@@ -1,6 +1,4 @@
-#pragma once
-#ifndef LEETCODE242_H
-#define LEETCODE242_H
+#pragma once 
 
 #include <iostream>
 
@@ -10,5 +8,3 @@ class Solution {
 public:
     bool isAnagram(string s, string t);
 };
-#endif // !LEETCODE242_H
-
