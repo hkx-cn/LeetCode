@@ -19,24 +19,42 @@
 // n == matrix[i].length
 // 1 <= m, n <= 100
 // -10^4 <= matrix[i][j], target <= 10^4
-#include "LeetCode74.h"
+#include "LeetCode74.hpp"
 bool Solution::searchMatrix(vector<vector<int>> &matrix, int target)
 {
+    // 结果范围[0,m*n-1]
     int left = 0, right = matrix.size() * matrix[0].size() - 1, mid = -1, i, j;
     while (left <= right)
     {
-        mid = left + (right - left) / 2;
+        mid = left + (right - left + 1) / 2;
         i = mid / matrix[0].size();
         j = mid % matrix[0].size();
-        if (matrix[i][j] == target)
-            return true;
-        else if (matrix[i][j] < target)
+        if (matrix[i][j] < target)
             left = mid + 1;
-        else
+        else if (matrix[i][j] > target)
             right = mid - 1;
+        else
+            return true;
     }
     return false;
-} 
+}
+// bool Solution::searchMatrix(vector<vector<int>> &matrix, int target)
+// {
+//     int left = 0, right = matrix.size() * matrix[0].size() - 1, mid = -1, i, j;
+//     while (left <= right)
+//     {
+//         mid = left + (right - left) / 2;
+//         i = mid / matrix[0].size();
+//         j = mid % matrix[0].size();
+//         if (matrix[i][j] == target)
+//             return true;
+//         else if (matrix[i][j] < target)
+//             left = mid + 1;
+//         else
+//             right = mid - 1;
+//     }
+//     return false;
+// }
 // 方法一：两次二分查找
 // 思路
 // 由于每行的第一个元素大于前一行的最后一个元素，且每行元素是升序的，所以每行的第一个元素大于前一行的第一个元素，因此矩阵第一列的元素是升序的。
