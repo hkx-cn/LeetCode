@@ -1,28 +1,22 @@
 // 389. 找不同
 // 给定两个字符串 s 和 t ，它们只包含小写字母。
-
 // 字符串 t 由字符串 s 随机重排，然后在随机位置添加一个字母。
-
 // 请找出在 t 中被添加的字母。
-
- 
 
 // 示例 1：
 // 输入：s = "abcd", t = "abcde"
 // 输出："e"
 // 解释：'e' 是那个被添加的字母。
-
 // 示例 2：
 // 输入：s = "", t = "y"
 // 输出："y"
- 
 
 // 提示： 
 // 0 <= s.length <= 1000
 // t.length == s.length + 1
 // s 和 t 只包含小写字母
 
-#include "LeetCode389.h"
+#include "LeetCode389.hpp"
 
 char Solution::findTheDifference(string s, string t) {
 
@@ -55,9 +49,7 @@ char Solution::findTheDifference(string s, string t) {
 //	return at - as;
 //};
 //复杂度分析
-
 //时间复杂度：O(N)，其中 N 为字符串的长度。
-
 //空间复杂度：O(∣Σ∣)，其中 Σ 是字符集，这道题中字符串只包含小写字母，∣Σ∣=26|。需要使用数组对每个字符计数。
 //方法二：求和
 //将字符串 s 中每个字符的 ASCII 码的值求和，得到 As ；对字符串 t 同样的方法得到 At 。两者的差值 At−As 即代表了被添加的字符。 
@@ -72,9 +64,7 @@ char Solution::findTheDifference(string s, string t) {
 //	return ret;
 //};
 // 复杂度分析
-
 // 时间复杂度：O(N)。
-
 // 空间复杂度：O(1)。
 
 // 方法三：位运算
@@ -93,7 +83,5 @@ char Solution::findTheDifference(string s, string t) {
 //     }
 // };
 // 复杂度分析
-
 // 时间复杂度：O(N)。
-
 // 空间复杂度：O(1)。

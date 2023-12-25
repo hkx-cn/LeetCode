@@ -1,6 +1,4 @@
-#pragma once
-#ifndef LEETCODE445_H
-#define LEETCODE445_H
+#pragma once 
 
 // Definition for singly-linked list.
 struct ListNode {
@@ -15,4 +13,3 @@ class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2);
 };
-#endif LEETCODE445_H

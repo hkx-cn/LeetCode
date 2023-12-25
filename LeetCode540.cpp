@@ -6,7 +6,6 @@
 // 示例 1:
 // 输入: nums = [1,1,2,3,3,4,4,8,8]
 // 输出: 2
-//
 // 示例 2:
 // 输入: nums =  [3,3,7,7,10,11,11]
 // 输出: 10
@@ -14,20 +13,23 @@
 // 提示:
 // 1 <= nums.length <= 10^5
 // 0 <= nums[i] <= 10^5
-#include "LeetCode540.h"
+#include "LeetCode540.hpp"
 int Solution::singleNonDuplicate(vector<int> &nums)
-{
-    int left = 0, right = nums.size() - 1, mid = -1;
-    while (left < right)
-    {
-        mid = (left + (right - left) / 2) >> 1 << 1;
-        if (nums[mid] == nums[mid + 1])
-            left = mid + 2;
-        else
-            right = mid;
-    }
-    return nums[left];
+{ 
 };
+// int Solution::singleNonDuplicate(vector<int> &nums)
+// {
+//     int left = 0, right = nums.size() - 1, mid = -1;
+//     while (left < right)
+//     {
+//         mid = (left + (right - left) / 2) >> 1 << 1;
+//         if (nums[mid] == nums[mid + 1])
+//             left = mid + 2;
+//         else
+//             right = mid;
+//     }
+//     return nums[left];
+// };
 // 方法一：全数组的二分查找
 // 思路和算法
 
@@ -109,4 +111,4 @@ int Solution::singleNonDuplicate(vector<int> &nums)
 // };
 // 复杂度分析
 // 时间复杂度：O(log⁡n)，其中 n 是数组 nums 的长度。需要在偶数下标范围内二分查找，二分查找的时间复杂度是 O(log⁡n)。
-// 空间复杂度：O(1)。   
+// 空间复杂度：O(1)。
