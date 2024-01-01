@@ -39,7 +39,7 @@ bool Solution::isPowerOfTwo(int n) {
 	{
 		return false;
 	}
-};
+}
 //方法一：二进制表示
 //思路与算法
 //

@@ -55,7 +55,7 @@ vector<int> Solution::searchRange(vector<int> &nums, int target)
 			
 		}
 	}
-};
+}
 
 // vector<int> Solution::searchRange(vector<int>& nums, int target) {
 // 	vector<int> result{ -1,-1 };

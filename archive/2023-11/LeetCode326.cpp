@@ -33,7 +33,7 @@ bool Solution::isPowerOfThree(int n) {
 		return true;
 	}
 	return false;
-};
+}
 //方法一：试除法
 //思路与算法 
 //我们不断地将 n 除以 3，直到 n = 1。如果此过程中 n 无法被 3 整除，就说明 n 不是 3 的幂。

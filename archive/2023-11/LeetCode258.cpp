@@ -33,7 +33,7 @@ int Solution::addDigits(int num) {
 		num = result;
 	}
 	return result;
-};
+}
 //前言
 //这道题的本质是计算自然数 num 的数根。 
 //数根又称数字根（Digital root），是自然数的一种性质，每个自然数都有一个数根。对于给定的自然数，反复将各个位上的数字相加，直到结果为一位数，则该一位数即为原自然数的数根。

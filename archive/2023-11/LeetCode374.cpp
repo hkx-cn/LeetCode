@@ -53,7 +53,7 @@ int Solution::guessNumber(int n)
             left = mid + 1;
     }
     return mid;
-};
+}
 // int Solution::guessNumber(int n) {
 //     unsigned int left = 1, right = n;
 //     int mid = -1, result = -1;
@@ -75,7 +75,7 @@ int Solution::guessNumber(int n)
 //     //    }
 //     //}
 //     return mid;
-// };
+// }
 // 方法一：二分查找
 // 记选出的数字为 pick，猜测的数字为 x。根据题目描述，若 guess(x)≤0 则说明 x≥pick，否则 x < pick。
 // 根据这一性质我们可以使用二分查找来求出答案 pick。

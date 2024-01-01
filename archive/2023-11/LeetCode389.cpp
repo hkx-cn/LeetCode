@@ -35,7 +35,7 @@ char Solution::findTheDifference(string s, string t) {
 			return i + 65;
 		}
 	}
-};
+}
 //方法一：计数
 //首先遍历字符串 s，对其中的每个字符都将计数值加 1；然后遍历字符串 t，对其中的每个字符都将计数值减 1。当发现某个字符计数值为负数时，说明该字符在字符串 t 中出现的次数大于在字符串 s 中出现的次数，因此该字符为被添加的字符。
 //char Solution::findTheDifference(string s, string t) {

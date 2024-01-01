@@ -37,7 +37,7 @@ bool Solution::isPerfectSquare(int num)
 		}
 	}
 	return false;
-};
+}
 
 // bool Solution::isPerfectSquare(int num) {
 // 	int left = 1, right = num, mid = -1;
@@ -62,7 +62,7 @@ bool Solution::isPerfectSquare(int num)
 // 		}
 // 	}
 // 	return false;
-// };
+// }
 // 前言
 // 在方法一中，我们使用内置的库函数来解决问题。
 // 在方法二、方法三和方法四中，我们不使用库函数来解决进阶问题。注意，因为不能使用任何内置的库函数，所以也不能使用类似 √x = x^1/2 = (e^ln⁡x)^1/2 = e^1/2^ln⁡x 的公式来通过其他库函数计算平方根。

@@ -49,7 +49,7 @@ int Solution::arrangeCoins(int n)
 //         }
 //     }
 //     return right;
-// };
+// }
 // int Solution::arrangeCoins(int n)
 // {
 //     int left = 1, right = n > 65535 ? 65535 : n, mid = -1;
@@ -81,7 +81,7 @@ int Solution::arrangeCoins(int n)
 //         }
 //     }
 //     return mid;
-// };
+// }
 // 方法一：二分查找
 // 思路和算法
 // 根据等差数列求和公式可知，前 k 个完整阶梯行所需的硬币数量为

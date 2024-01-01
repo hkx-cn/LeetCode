@@ -36,7 +36,7 @@ int Solution::strStr(string haystack, string needle) {
 		}
 	}
 	return -1;
-};
+}
 
 // 前言
 // 本题是经典的字符串单模匹配的模型，因此可以使用字符串匹配算法解决，常见的字符串匹配算法包括暴力匹配、Knuth-Morris-Pratt 算法、Boyer-Moore 算法、Sunday 算法等，本文将讲解 Knuth-Morris-Pratt 算法。

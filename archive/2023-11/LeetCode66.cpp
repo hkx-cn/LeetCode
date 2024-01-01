@@ -37,7 +37,7 @@ vector<int> Solution::plusOne(vector<int>& digits) {
 		digits.insert(digits.begin(), 1);
 	}
 	return digits;
-};
+}
 // 方法一：找出最长的后缀 9
 // 思路 
 // 当我们对数组 digits 加一时，我们只需要关注 digits 的末尾出现了多少个 9 即可。我们可以考虑如下的三种情况：

@@ -73,10 +73,9 @@ string Solution::addBinary(string a, string b)
         result.insert(0, "1");
     }
     return result;
-};
+}
 // 考虑一个最朴素的方法：先将 a 和 b 转化成十进制数，求和后再转化为二进制数。利用 Python 和 Java 自带的高精度运算，我们可以很简单地写出这个程序：
 // 如果 a 的位数是 n，b 的位数为 m，这个算法的渐进时间复杂度为 O(n+m)。但是这里非常简单的实现基于 Python 和 Java 本身的高精度功能，在其他的语言中可能并不适用，并且在 Java 中：
-
 // 如果字符串超过 33 位，不能转化为 Integer
 // 如果字符串超过 65 位，不能转化为 Long
 // 如果字符串超过 500000001 位，不能转化为 BigInteger

@@ -45,7 +45,7 @@ int Solution::search(vector<int> &nums, int target)
         }
     }
     return -1;
-};
+}
 
 int Solution::binarySearch(vector<int> &nums, int left, int right, int target)
 {
