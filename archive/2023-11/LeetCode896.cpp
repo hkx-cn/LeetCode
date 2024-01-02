@@ -1,29 +1,24 @@
 // 896. 单调数列
 // 如果数组是单调递增或单调递减的，那么它是 单调 的。
-
 // 如果对于所有 i <= j，nums[i] <= nums[j]，那么数组 nums 是单调递增的。 如果对于所有 i <= j，nums[i]> = nums[j]，那么数组 nums 是单调递减的。
-
 // 当给定的数组 nums 是单调数组时返回 true，否则返回 false。
 
 
 // 示例 1： 
 // 输入：nums = [1,2,2,3]
-// 输出：true
-//
+// 输出：true 
 // 示例 2： 
 // 输入：nums = [6,5,4,4]
-// 输出：true
-//
+// 输出：true 
 // 示例 3： 
 // 输入：nums = [1,3,2]
 // 输出：false
  
 
-// 提示：
-
+// 提示： 
 // 1 <= nums.length <= 10^5
 // -10^5 <= nums[i] <= 10^5
-#include "LeetCode896.h"
+#include "LeetCode896.hpp"
 bool Solution::isMonotonic(vector<int>& nums) {
 	vector<int> v1, v2;
 	v1 = nums;
@@ -46,9 +41,7 @@ bool Solution::isMonotonic(vector<int>& nums) {
 //     }
 // };
 // 复杂度分析
-
 // 时间复杂度：O(n)，其中 n 是数组 nums 的长度。
-
 // 空间复杂度：O(1)。
 
 // 方法二：一次遍历
@@ -70,7 +63,5 @@ bool Solution::isMonotonic(vector<int>& nums) {
 //     }
 // };
 // 复杂度分析
-
 // 时间复杂度：O(n)，其中 n 是数组 nums 的长度。
-
 // 空间复杂度：O(1)。 

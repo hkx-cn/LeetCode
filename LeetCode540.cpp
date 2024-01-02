@@ -14,9 +14,9 @@
 // 1 <= nums.length <= 10^5
 // 0 <= nums[i] <= 10^5
 #include "LeetCode540.hpp"
-int Solution::singleNonDuplicate(vector<int> &nums)
-{ 
-};
+// int Solution::singleNonDuplicate(vector<int> &nums)
+// { 
+// };
 // int Solution::singleNonDuplicate(vector<int> &nums)
 // {
 //     int left = 0, right = nums.size() - 1, mid = -1;

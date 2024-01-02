@@ -61,7 +61,7 @@
 // 0 <= moves[i][j] <= 2
 // moves 里没有重复的元素。
 // moves 遵循井字棋的规则。
-#include "LeetCode1275.h"
+#include "LeetCode1275.hpp"
 string Solution::tictactoe(vector<vector<int>>& moves) {
 	return "1";
 };

@@ -1,13 +1,10 @@
 #pragma once
-#ifndef LEETCODE976_H
-#define LEETCODE976_H
+
+#include <iostream>
 #include <vector>
 #include <algorithm>
 using namespace std;
-
 class Solution {
 public:
-	int largestPerimeter(vector<int>& nums);
+    bool isMonotonic(vector<int>& nums);
 };
-
-#endif
