@@ -26,31 +26,58 @@
 // 1 <= n, m <= 10^5
 // 1 <= spells[i], potions[i] <= 10^5
 // 1 <= success <= 10^10
-#include "LeetCode2300.h"
+#include "LeetCode2300.hpp"
 vector<int> Solution::successfulPairs(vector<int> &spells, vector<int> &potions, long long success)
 {
-    int left = 0, right = potions.size() - 1, mid = -1;
-    vector<int> result;
+    vector<int> result(spells.size());
     sort(potions.begin(), potions.end());
     for (size_t i = 0; i < spells.size(); i++)
     {
-        left = 0;
-        right = potions.size() - 1;
-        while (left < right)
+        int left = 0, right = potions.size() - 1, mid = -1, ans = 0;
+        // 二分查找，最小下标
+        // 值范围[0,potions.size()]
+        // 从左往右二分
+        while (left <= right)
         {
             mid = left + (right - left) / 2;
-            if (spells[i] * potions[mid] >= success)
-                right = mid;
+            if ((long long)spells[i] * (long long)potions[mid] >= success)
+            {
+                right = mid - 1;
+                ans = potions.size() - mid;
+            }
             else
+            {
                 left = mid + 1;
+            }
         }
-        result.push_back(potions.size() - left);
+        result[i] = ans;
     }
     return result;
-};
+}
+// vector<int> Solution::successfulPairs(vector<int> &spells, vector<int> &potions, long long success)
+// {
+//     int left = 0, right = potions.size() - 1, mid = -1;
+//     vector<int> result;
+//     sort(potions.begin(), potions.end());
+//     for (size_t i = 0; i < spells.size(); i++)
+//     {
+//         left = 0;
+//         right = potions.size() - 1;
+//         while (left < right)
+//         {
+//             mid = left + (right - left) / 2;
+//             if (spells[i] * potions[mid] >= success)
+//                 right = mid;
+//             else
+//                 left = mid + 1;
+//         }
+//         result.push_back(potions.size() - left);
+//     }
+//     return result;
+// }
 // 方法一：二分查找
-// 思路与算法 
-// 对于某一个咒语的能量，我们可以采用二分查找的方法来高效地找到符合条件的药水数量。首先，我们将 potions 数组进行排序，以便能够利用有序性进行二分查找。然后，对于每个咒语 spells[i]，0≤i<n，其中 n 为数组 spells 的长度，我们计算出目标值 
+// 思路与算法
+// 对于某一个咒语的能量，我们可以采用二分查找的方法来高效地找到符合条件的药水数量。首先，我们将 potions 数组进行排序，以便能够利用有序性进行二分查找。然后，对于每个咒语 spells[i]，0≤i<n，其中 n 为数组 spells 的长度，我们计算出目标值
 // target=⌈success/spells[i]⌉
 // 其中 ⌈x⌉ 表示不小于 x 的最小整数。target 代表了在当前咒语强度下，药水需要达到的最低强度。接下来，我们使用「二分查找」来在数组 potions 中找到第一个大于等于 target 的元素的索引 idx，进一步可以得到此时表示成功组合的药水数量为 m−idx，其中 m 表示数组 potions 的长度。
 // class Solution {

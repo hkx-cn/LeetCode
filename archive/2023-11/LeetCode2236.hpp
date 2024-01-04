@@ -1,6 +1,4 @@
 #pragma once
-#ifndef LEETCODE2236_H
-#define LEETCODE2236_H
 
 //Definition for a binary tree node.
  struct TreeNode {
@@ -16,6 +14,3 @@ class Solution {
 public:
     bool checkTree(TreeNode* root);
 };
-
-#endif // !LEETCODE2236_H
-
