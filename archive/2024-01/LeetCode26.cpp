@@ -27,8 +27,22 @@
 // 1 <= nums.length <= 3 * 10^4
 // -10^4 <= nums[i] <= 10^4
 // nums 已按 非严格递增 排列
-// #include "LeetCode26.hpp"
+#include "LeetCode26.hpp"
 
+int Solution::removeDuplicates(vector<int> &nums)
+{  
+    int idx = 0, temp = nums[idx] - 1;
+    for (size_t i = 0; i < nums.size(); i++)
+    {
+        if (nums[i] > temp)
+        {
+            swap(nums[i], nums[idx]);
+            temp = nums[idx];
+            idx++;
+        }
+    }
+    return idx;
+}
 // int Solution::removeDuplicates(vector<int> &nums)
 // {
 //     int result = 1, tmp = nums[0];
@@ -75,4 +89,4 @@
 // };
 // 复杂度分析
 // 时间复杂度：O(n)，其中 n 是数组的长度。快指针和慢指针最多各移动 n 次。
-// 空间复杂度：O(1)。只需要使用常数的额外空间。 
+// 空间复杂度：O(1)。只需要使用常数的额外空间。
