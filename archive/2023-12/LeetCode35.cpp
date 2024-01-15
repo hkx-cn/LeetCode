@@ -1,8 +1,6 @@
 ﻿// 35. 搜索插入位置
 // 给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。
-//
 // 请必须使用时间复杂度为 O(log n) 的算法。
-//
 //
 // 示例 1:
 // 输入: nums = [1, 3, 5, 6], target = 5
@@ -22,27 +20,42 @@
 #include "LeetCode35.hpp"
 int Solution::searchInsert(vector<int> &nums, int target)
 {
-	// 二分查找目标值索引或被按顺序插入的位置
-	// 索引条件：中间值等于目标值为返回值
-	// 索引条件：中间值大于目标值，前一个下标小于目标值
-	// 边界值：0~nums.size() (大于数组的最大索引)
+	// 二分查找
 	int left = 0, right = nums.size() - 1, mid = -1;
+	// 值范围[0, nums.size()]
 	while (left <= right)
 	{
-		mid = left + (right - left + 1) / 2;
-		// 从左往右二分
-		if (nums[mid] < target)
-			left = mid + 1;
-		else if (nums[mid] > target)
+		mid = left + (right - left) / 2;
+		if (nums[mid] >= target)
 			right = mid - 1;
 		else
-		{
-			left = mid;
-			break;
-		}
+			left = mid + 1;
 	}
 	return left;
-};
+}
+// int Solution::searchInsert(vector<int> &nums, int target)
+// {
+// 	// 二分查找目标值索引或被按顺序插入的位置
+// 	// 索引条件：中间值等于目标值为返回值
+// 	// 索引条件：中间值大于目标值，前一个下标小于目标值
+// 	// 边界值：0~nums.size() (大于数组的最大索引)
+// 	int left = 0, right = nums.size() - 1, mid = -1;
+// 	while (left <= right)
+// 	{
+// 		mid = left + (right - left + 1) / 2;
+// 		// 从左往右二分
+// 		if (nums[mid] < target)
+// 			left = mid + 1;
+// 		else if (nums[mid] > target)
+// 			right = mid - 1;
+// 		else
+// 		{
+// 			left = mid;
+// 			break;
+// 		}
+// 	}
+// 	return left;
+// }
 // int Solution::searchInsert(vector<int>& nums, int target) {
 // 	int left = 0, right = nums.size() - 1, mid = 0;
 // 	while (left <= right)
@@ -107,6 +120,6 @@ int Solution::searchInsert(vector<int> &nums, int target)
 //			return ans;
 //		}
 //};
-// 复杂度分析 
-// 时间复杂度：O(log⁡n)，其中 n 为数组的长度。二分查找所需的时间复杂度为 O(log⁡n)。 
+// 复杂度分析
+// 时间复杂度：O(log⁡n)，其中 n 为数组的长度。二分查找所需的时间复杂度为 O(log⁡n)。
 // 空间复杂度：O(1)。我们只需要常数空间存放若干变量。

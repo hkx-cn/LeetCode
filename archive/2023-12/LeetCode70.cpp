@@ -21,22 +21,38 @@
 #include "LeetCode70.hpp"
 int Solution::climbStairs(int n)
 {
-    int a = 1, b = 2, result = 0;
-    if (n == 1)
-        return 1;
-    else if (n == 2)
-        return 2;
+    int dp1 = 1, dp2 = 2, ans = -1;
+    if (n <= 2)
+        return n;
     else
     {
         for (size_t i = 3; i <= n; i++)
         {
-            result = a + b;
-            a = b;
-            b = result;
+            ans = dp1 + dp2;
+            dp1 = dp2;
+            dp2 = ans;
         }
     }
-    return result;
-};
+    return ans;
+}
+// int Solution::climbStairs(int n)
+// {
+//     int a = 1, b = 2, result = 0;
+//     if (n == 1)
+//         return 1;
+//     else if (n == 2)
+//         return 2;
+//     else
+//     {
+//         for (size_t i = 3; i <= n; i++)
+//         {
+//             result = a + b;
+//             a = b;
+//             b = result;
+//         }
+//     }
+//     return result;
+// }
 // 方法一：动态规划
 // 思路和算法
 // 我们用 f(x) 表示爬到第 x 级台阶的方案数，考虑最后一步可能跨了一级台阶，也可能跨了两级台阶，所以我们可以列出如下式子：

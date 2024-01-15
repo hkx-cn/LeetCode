@@ -32,19 +32,36 @@
 #include "LeetCode27.hpp"
 int Solution::removeElement(vector<int> &nums, int val)
 {
-    int result = 0;
-    for (size_t i = 0; i < nums.size(); i++)
+    int left = 0, right = nums.size() - 1;
+    while (left <= right)
     {
-        if (nums[i] == val)
+        if (nums[left] == val)
         {
-            nums.erase(nums.begin() + i, nums.begin() + i + 1);
-            i--;
+            swap(nums[left], nums[right]);
+            right--;
         }
         else
-            result++;
+        {
+            left++;
+        }
     }
-    return result;
-};
+    return right + 1;
+}
+// int Solution::removeElement(vector<int> &nums, int val)
+// {
+//     int result = 0;
+//     for (size_t i = 0; i < nums.size(); i++)
+//     {
+//         if (nums[i] == val)
+//         {
+//             nums.erase(nums.begin() + i, nums.begin() + i + 1);
+//             i--;
+//         }
+//         else
+//             result++;
+//     }
+//     return result;
+// }
 // 方法一：双指针
 // 思路及算法
 // 由于题目要求删除数组中等于 val 的元素，因此输出数组的长度一定小于等于输入数组的长度，我们可以把输出的数组直接写在输入数组上。可以使用双指针：右指针 right 指向当前将要处理的元素，左指针 left 指向下一个将要赋值的位置。
@@ -95,4 +112,4 @@ int Solution::removeElement(vector<int> &nums, int val)
 // };
 // 复杂度分析
 // 时间复杂度：O(n)，其中 n 为序列的长度。我们只需要遍历该序列至多一次。
-// 空间复杂度：O(1)。我们只需要常数的空间保存若干变量。 
+// 空间复杂度：O(1)。我们只需要常数的空间保存若干变量。
