@@ -28,24 +28,41 @@
 #include "LeetCode153.hpp"
 int Solution::findMin(vector<int> &nums)
 {
-    // 结果范围[0,nums.size()-1]
-    int left = 0, right = nums.size() - 1, mid = -1, min = 50000, temp;
-    while (left <= right)
+    int left = 0, right = nums.size() - 1, mid = -1;
+    while (left < right)
     {
-        mid = left + (right - left + 1) / 2;
-        if (nums[left] <= nums[mid])
+        mid = left + (right - left) / 2;
+        if (nums[mid] > nums[right])
         {
-            min = min < nums[left] ? min : nums[left];
             left = mid + 1;
         }
-        else if (nums[mid] <= nums[right])
+        else if (nums[mid] < nums[right])
         {
-            min = min < nums[mid] ? min : nums[mid];
-            right = mid - 1;
+            right = mid;
         }
     }
-    return min;
-} 
+    return nums[left];
+}
+// int Solution::findMin(vector<int> &nums)
+// {
+//     // 结果范围[0,nums.size()-1]
+//     int left = 0, right = nums.size() - 1, mid = -1, min = 50000, temp;
+//     while (left <= right)
+//     {
+//         mid = left + (right - left + 1) / 2;
+//         if (nums[left] <= nums[mid])
+//         {
+//             min = min < nums[left] ? min : nums[left];
+//             left = mid + 1;
+//         }
+//         else if (nums[mid] <= nums[right])
+//         {
+//             min = min < nums[mid] ? min : nums[mid];
+//             right = mid - 1;
+//         }
+//     }
+//     return min;
+// } 
 // int Solution::findMin(vector<int> &nums)
 // {
 //     int left = 0, right = nums.size() - 1, mid = -1;
