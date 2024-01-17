@@ -16,39 +16,51 @@
 
 void Solution::moveZeroes(vector<int> &nums)
 {
-	int x = 0, y = 0;
-	while (x < nums.size() && y < nums.size())
-	{
-		if (nums[x] == 0)
-		{
-			y = y < x ? x : y;
-			if (nums[y] != 0)
-				swap(nums[x], nums[y]);
-			else
-				y++;
-		}
-		else
-			x++;
-	}
-}
-
-void Solution::moveZeroes(vector<int> &nums)
-{
+	int idx = 0;
 	for (size_t i = 0; i < nums.size(); i++)
 	{
-		if (nums[i] == 0)
+		if (nums[i] != 0)
 		{
-			for (size_t j = i + 1; j < nums.size(); j++)
-			{
-				if (nums[j] != 0)
-				{
-					swap(nums[i], nums[j]);
-					break;
-				}
-			}
+			swap(nums[i], nums[idx]);
+			idx++;
 		}
 	}
 }
+// void Solution::moveZeroes(vector<int> &nums)
+// {
+// 	int x = 0, y = 0;
+// 	while (x < nums.size() && y < nums.size())
+// 	{
+// 		if (nums[x] == 0)
+// 		{
+// 			y = y < x ? x : y;
+// 			if (nums[y] != 0)
+// 				swap(nums[x], nums[y]);
+// 			else
+// 				y++;
+// 		}
+// 		else
+// 			x++;
+// 	}
+// }
+
+// void Solution::moveZeroes(vector<int> &nums)
+// {
+// 	for (size_t i = 0; i < nums.size(); i++)
+// 	{
+// 		if (nums[i] == 0)
+// 		{
+// 			for (size_t j = i + 1; j < nums.size(); j++)
+// 			{
+// 				if (nums[j] != 0)
+// 				{
+// 					swap(nums[i], nums[j]);
+// 					break;
+// 				}
+// 			}
+// 		}
+// 	}
+// }
 
 // void Solution::moveZeroes(vector<int>& nums) {
 // 	if (nums.size() == 1)

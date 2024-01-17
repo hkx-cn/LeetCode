@@ -17,22 +17,37 @@
 // 1 <= nums.length <= 100
 // 0 <= nums[i] <= 400
 #include "LeetCode198.hpp"
-
 int Solution::rob(vector<int> &nums)
 {
     if (nums.size() == 1)
         return nums[0];
-    else if (nums.size() == 2)
+    if (nums.size() == 2)
         return nums[0] > nums[1] ? nums[0] : nums[1];
-    int t0 = nums[0], t1 = nums[1], result = 0;
+
+    vector<int> dp(nums.size());
+    dp[0] = nums[0];
+    dp[1] = nums[1];
     for (size_t i = 2; i < nums.size(); i++)
     {
-        result = t0 + nums[i] > t1 ? t0 + nums[i] : t1;
-        t0 = t1 > t0 ? t1 : t0;
-        t1 = result;
+        dp[i] = dp[i - 2] + nums[i] > dp[i - 1] ? dp[i - 2] + nums[i] : dp[i - 1];
     }
-    return t0 > t1 ? t0 : t1;
+    return dp[nums.size()];
 }
+// int Solution::rob(vector<int> &nums)
+// {
+//     if (nums.size() == 1)
+//         return nums[0];
+//     else if (nums.size() == 2)
+//         return nums[0] > nums[1] ? nums[0] : nums[1];
+//     int t0 = nums[0], t1 = nums[1], result = 0;
+//     for (size_t i = 2; i < nums.size(); i++)
+//     {
+//         result = t0 + nums[i] > t1 ? t0 + nums[i] : t1;
+//         t0 = t1 > t0 ? t1 : t0;
+//         t1 = result;
+//     }
+//     return t0 > t1 ? t0 : t1;
+// }
 // 方法一：动态规划
 // 首先考虑最简单的情况。如果只有一间房屋，则偷窃该房屋，可以偷窃到最高总金额。如果只有两间房屋，则由于两间房屋相邻，不能同时偷窃，只能偷窃其中的一间房屋，因此选择其中金额较高的房屋进行偷窃，可以偷窃到最高总金额。
 // 如果房屋数量大于两间，应该如何计算能够偷窃到的最高总金额呢？对于第 k (k>2) 间房屋，有两个选项：
@@ -83,6 +98,6 @@ int Solution::rob(vector<int> &nums)
 //         return second;
 //     }
 // };
-// 复杂度分析 
-// 时间复杂度：O(n)，其中 n 是数组长度。只需要对数组遍历一次。 
+// 复杂度分析
+// 时间复杂度：O(n)，其中 n 是数组长度。只需要对数组遍历一次。
 // 空间复杂度：O(1)。使用滚动数组，可以只存储前两间房屋的最高总金额，而不需要存储整个数组的结果，因此空间复杂度是 O(1)。

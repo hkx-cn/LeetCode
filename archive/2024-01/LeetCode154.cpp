@@ -23,44 +23,65 @@
 #include "LeetCode154.hpp"
 int Solution::findMin(vector<int> &nums)
 {
-    int left = 0, right = nums.size() - 1, mid = -1, min = 50000;
-    // 二分查找，结果范围[0,nums.size()-1]
-    while (left <= right)
+    int left = 0, right = nums.size() - 1, mid = -1;
+    while (left < right)
     {
         mid = left + (right - left) / 2;
-        if (nums[mid] > nums[right])
+        if (nums[mid] < nums[right])
         {
-            min = min < nums[left] ? min : nums[left];
-            left = mid + 1;
-        }
-        else if (nums[left] > nums[mid])
-        {
-            min = min < nums[right] ? min : nums[right];
             right = mid;
         }
-        else if (nums[mid] < nums[right])
+        else if (nums[mid] > nums[right])
         {
-            min = min < nums[mid] ? min : nums[mid];
-            right = mid - 1;
-        }
-        else if (nums[left] < nums[mid])
-        {
-            min = min < nums[left] ? min : nums[left];
             left = mid + 1;
         }
         else if (nums[mid] == nums[right])
         {
-            min = min < nums[right] ? min : nums[right];
             right--;
         }
-        else if (nums[left] == nums[mid])
-        {
-            min = min < nums[left] ? min : nums[left];
-            left++;
-        }
     }
-    return min;
-};
+    return nums[left];
+}
+// int Solution::findMin(vector<int> &nums)
+// {
+//     int left = 0, right = nums.size() - 1, mid = -1, min = 50000;
+//     // 二分查找，结果范围[0,nums.size()-1]
+//     while (left <= right)
+//     {
+//         mid = left + (right - left) / 2;
+//         if (nums[mid] > nums[right])
+//         {
+//             min = min < nums[left] ? min : nums[left];
+//             left = mid + 1;
+//         }
+//         else if (nums[left] > nums[mid])
+//         {
+//             min = min < nums[right] ? min : nums[right];
+//             right = mid;
+//         }
+//         else if (nums[mid] < nums[right])
+//         {
+//             min = min < nums[mid] ? min : nums[mid];
+//             right = mid - 1;
+//         }
+//         else if (nums[left] < nums[mid])
+//         {
+//             min = min < nums[left] ? min : nums[left];
+//             left = mid + 1;
+//         }
+//         else if (nums[mid] == nums[right])
+//         {
+//             min = min < nums[right] ? min : nums[right];
+//             right--;
+//         }
+//         else if (nums[left] == nums[mid])
+//         {
+//             min = min < nums[left] ? min : nums[left];
+//             left++;
+//         }
+//     }
+//     return min;
+// }
 // int Solution::findMin(vector<int> &nums)
 // {
 //     int left = 0, right = nums.size() - 1, mid = -1;

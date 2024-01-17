@@ -11,6 +11,7 @@
 // 总花费为 15 。
 // 示例 2：
 // 输入：cost = [1,100,1,1,1,100,1,1,100,1]
+              // 0, 0,1,1,2,  2,3,4,4,  5,6
 // 输出：6
 // 解释：你将从下标为 0 的台阶开始。
 // - 支付 1 ，向上爬两个台阶，到达下标为 2 的台阶。
@@ -27,15 +28,28 @@
 #include "LeetCode746.hpp"
 int Solution::minCostClimbingStairs(vector<int> &cost)
 {
-    int t0 = cost[0], t1 = cost[1], result;
-    for (size_t i = 2; i < cost.size(); i++)
+    int c0 = 0, c1 = 0, temp = 0;
+    if (cost.size() < 2)
+        return 0;
+    for (size_t i = 2; i <= cost.size(); i++)
     {
-        result = t0 < t1 ? t0 : t1;
-        t0 = t1;
-        t1 = result + cost[i];
+        temp = c0 + cost[i - 2] < c1 + cost[i - 1] ? c0 + cost[i - 2] : c1 + cost[i - 1];
+        c0 = c1;
+        c1 = temp;
     }
-    return t0 < t1 ? t0 : t1;
-};
+    return c1;
+}
+// int Solution::minCostClimbingStairs(vector<int> &cost)
+// {
+//     int t0 = cost[0], t1 = cost[1], result;
+//     for (size_t i = 2; i < cost.size(); i++)
+//     {
+//         result = t0 < t1 ? t0 : t1;
+//         t0 = t1;
+//         t1 = result + cost[i];
+//     }
+//     return t0 < t1 ? t0 : t1;
+// }
 // 方法一：动态规划
 // 假设数组 cost 的长度为 n，则 n 个阶梯分别对应下标 0 到 n−1，楼层顶部对应下标 n，问题等价于计算达到下标 n 的最小花费。可以通过动态规划求解。
 // 创建长度为 n+1 的数组 dp，其中 dp[i] 表示达到下标 i 的最小花费。

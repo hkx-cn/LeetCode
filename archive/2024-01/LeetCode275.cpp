@@ -19,25 +19,43 @@
 // citations 按 升序排列
 #include "LeetCode275.hpp"
 int Solution::hIndex(vector<int> &citations)
-{
-    int left = 0, right = citations.size() - 1, mid = -1, ans = -1;
-    // 从右往左二分
-    // 下标边界值[0,citations.size()-1]
+{ 
+    int left = 0, right = citations.size() - 1, mid = -1, ans = citations.size() - 1;
     while (left <= right)
     {
         mid = left + (right - left) / 2;
-        if (citations.size() - mid <= citations[mid])
-        {
-            right = mid;
-            ans = citations.size() - right;
-        }
-        else
+        if (citations[mid] < citations.size() - mid)
         {
             left = mid + 1;
         }
+        else
+        {
+            right = mid - 1;
+            ans = mid;
+        }
     }
-    return ans;
+    return citations[ans] < citations.size() - ans ? citations[ans] : citations.size() - ans;
 }
+// int Solution::hIndex(vector<int> &citations)
+// {
+//     int left = 0, right = citations.size() - 1, mid = -1, ans = -1;
+//     // 从右往左二分
+//     // 下标边界值[0,citations.size()-1]
+//     while (left <= right)
+//     {
+//         mid = left + (right - left) / 2;
+//         if (citations.size() - mid <= citations[mid])
+//         {
+//             right = mid;
+//             ans = citations.size() - right;
+//         }
+//         else
+//         {
+//             left = mid + 1;
+//         }
+//     }
+//     return ans;
+// }
 // int Solution::hIndex(vector<int> &citations)
 // {
 //     int left = 0, right = citations.size() - 1, mid = -1;

@@ -20,28 +20,44 @@
 #include "LeetCode278.hpp"
 // The API isBadVersion is defined for you.
 // bool isBadVersion(int version);
-
 int Solution::firstBadVersion(int n)
 {
-    // 从左往右二分
-    // 边界值[1,n]
-    int left = 1, right = n, mid = -1, ans = 0;
-    bool bad = false;
-    while (left <= right)
+    int left = 1, right = n, mid = -1;
+    while (left < right)
     {
         mid = left + (right - left) / 2;
         if (isBadVersion(mid))
         {
-            right = mid - 1;
-            ans = mid;
+            right = mid;
         }
         else
         {
             left = mid + 1;
         }
     }
-    return ans;
+    return left;    
 }
+// int Solution::firstBadVersion(int n)
+// {
+//     // 从左往右二分
+//     // 边界值[1,n]
+//     int left = 1, right = n, mid = -1, ans = 0;
+//     bool bad = false;
+//     while (left <= right)
+//     {
+//         mid = left + (right - left) / 2;
+//         if (isBadVersion(mid))
+//         {
+//             right = mid - 1;
+//             ans = mid;
+//         }
+//         else
+//         {
+//             left = mid + 1;
+//         }
+//     }
+//     return ans;
+// }
 // int Solution::firstBadVersion(int n) {
 //     unsigned int left = 1, right = n;
 //     int mid = -1;

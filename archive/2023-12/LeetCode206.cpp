@@ -27,18 +27,53 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
+// 递归
 ListNode *Solution::reverseList(ListNode *head)
 {
-	if (head->next != nullptr && head != nullptr)
-	{
-		ListNode *next = head->next;
-		ListNode *cur = head;
-		head = reverseList(head->next);
-		cur->next = nullptr;
-		next->next = cur;
-	}
-	return head;
-};
+	ListNode *next = nullptr, *result = nullptr;
+	if (head == nullptr)
+		return nullptr;
+	if (head->next == nullptr)
+		return head;
+	next = head->next;
+	result = reverseList(next);
+	head->next = nullptr;
+	next->next = head;
+	return result;
+}
+// // 迭代
+// ListNode *Solution::reverseList(ListNode *head)
+// {
+// 	ListNode *next = nullptr, *pre = head;
+// 	while (head != nullptr)
+// 	{
+// 		if (head->next != nullptr)
+// 		{
+// 			next = head->next;
+// 			head->next = pre;
+// 			pre = head;
+// 			head = next;
+// 		}
+// 		else
+// 		{
+// 			head->next = pre;
+// 			return head;
+// 		}
+// 	}
+// 	return head;
+// }
+// ListNode *Solution::reverseList(ListNode *head)
+// {
+// 	if (head->next != nullptr && head != nullptr)
+// 	{
+// 		ListNode *next = head->next;
+// 		ListNode *next = head;
+// 		head = reverseList(head->next);
+// 		next->next = nullptr;
+// 		next->next = next;
+// 	}
+// 	return head;
+// }
 // ListNode *Solution::reverseList(ListNode *head)
 // {
 // 	ListNode *result;
@@ -65,12 +100,12 @@ ListNode *Solution::reverseList(ListNode *head)
 // public:
 //     ListNode* reverseList(ListNode* head) {
 //         ListNode* prev = nullptr;
-//         ListNode* curr = head;
-//         while (curr) {
-//             ListNode* next = curr->next;
-//             curr->next = prev;
-//             prev = curr;
-//             curr = next;
+//         ListNode* nextr = head;
+//         while (nextr) {
+//             ListNode* next = nextr->next;
+//             nextr->next = prev;
+//             prev = nextr;
+//             nextr = next;
 //         }
 //         return prev;
 //     }

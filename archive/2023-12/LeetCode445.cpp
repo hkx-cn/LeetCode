@@ -31,47 +31,87 @@
  */
 ListNode *Solution::addTwoNumbers(ListNode *l1, ListNode *l2)
 {
-    ListNode *result1 = nullptr, *result2 = nullptr, *temp = nullptr;
-    int sum = 0, carry = 0;
+    stack<int> s1, s2;
+    ListNode *result = new ListNode(), *next = nullptr;
+    int carry = 0;
     while (l1 != nullptr)
     {
-        temp = new ListNode(l1->val);
-        temp->next = result1;
-        result1 = temp;
+        s1.push(l1->val);
         l1 = l1->next;
     }
     while (l2 != nullptr)
     {
-        temp = new ListNode(l2->val);
-        temp->next = result2;
-        result2 = temp;
+        s2.push(l2->val);
         l2 = l2->next;
     }
-    ListNode *result = new ListNode();
-    while (true)
+    while (s1.size() != 0 || s2.size() != 0)
     {
-        sum = carry;
-        if (result1 != nullptr)
+        if (s1.size() != 0)
         {
-            sum += result1->val;
-            result1 = result1->next;
+            carry += s1.top();
+            s1.pop();
         }
-        if (result2 != nullptr)
+        if (s2.size() != 0)
         {
-            sum += result2->val;
-            result2 = result2->next;
+            carry += s2.top();
+            s2.pop();
         }
-        ListNode *temp = new ListNode(sum % 10);
-        carry = sum / 10;
-        temp->next = result->next;
-        result->next = temp;
-        if (!(result1 != nullptr || result2 != nullptr || carry != 0))
-            break;
+        next = new ListNode(carry % 10);
+        next->next = result->next;
+        result->next = next;
+        carry /= 10;
+    }
+    if (carry != 0)
+    {
+        next = new ListNode(carry);
+        next->next = result->next;
+        result->next = next;
     }
     return result->next;
-};
+}
+// ListNode *Solution::addTwoNumbers(ListNode *l1, ListNode *l2)
+// {
+//     ListNode *result1 = nullptr, *result2 = nullptr, *temp = nullptr;
+//     int sum = 0, carry = 0;
+//     while (l1 != nullptr)
+//     {
+//         temp = new ListNode(l1->val);
+//         temp->next = result1;
+//         result1 = temp;
+//         l1 = l1->next;
+//     }
+//     while (l2 != nullptr)
+//     {
+//         temp = new ListNode(l2->val);
+//         temp->next = result2;
+//         result2 = temp;
+//         l2 = l2->next;
+//     }
+//     ListNode *result = new ListNode();
+//     while (true)
+//     {
+//         sum = carry;
+//         if (result1 != nullptr)
+//         {
+//             sum += result1->val;
+//             result1 = result1->next;
+//         }
+//         if (result2 != nullptr)
+//         {
+//             sum += result2->val;
+//             result2 = result2->next;
+//         }
+//         ListNode *temp = new ListNode(sum % 10);
+//         carry = sum / 10;
+//         temp->next = result->next;
+//         result->next = temp;
+//         if (!(result1 != nullptr || result2 != nullptr || carry != 0))
+//             break;
+//     }
+//     return result->next;
+// }
 // 方法一：栈
-// 思路与算法 
+// 思路与算法
 // 本题的主要难点在于链表中数位的顺序与我们做加法的顺序是相反的，为了逆序处理所有数位，我们可以使用栈：把所有数字压入栈中，再依次取出相加。计算过程中需要注意进位的情况。
 // class Solution {
 // public:

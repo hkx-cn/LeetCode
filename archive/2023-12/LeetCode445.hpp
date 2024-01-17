@@ -1,4 +1,6 @@
-#pragma once 
+#pragma once
+#include <stack>
+using namespace std;
 
 // Definition for singly-linked list.
 struct ListNode {
