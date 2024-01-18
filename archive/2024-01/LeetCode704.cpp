@@ -18,34 +18,49 @@
 int Solution::search(vector<int> &nums, int target)
 {
     int left = 0, right = nums.size() - 1, mid = -1, ans = -1;
-    // 二分查找
     while (left <= right)
     {
-        // 值范围[-1,nums.size()-1]
-        // -> 返回右指针，右指针 = 中指针 - 1，可达到-1下标
-        // -> 二分下标指向右侧
-        // -> 跳出循环left <= right，此时left = right
-        // 1、right - 1
-        // 2、left = mid = right
-        // nums[mid]和target
-        // >:mid右侧舍弃 right = mid - 1;
-        // <:mid左侧舍弃 left = mid;
-        // =:此时left = mid或right = mid - 1;
-
-        // 值范围[-1,nums.size()-1]
-        // 循环跳出 left <= right,nums[mid] == target时返回mid
-        // nums[mid] < target left = mid + 1
-        // nums[mid] > target right = mid - 1
         mid = left + (right - left) / 2;
-        if (nums[mid] < target)
+        if (nums[mid] == target)
+            return mid;
+        else if (nums[mid] < target)
             left = mid + 1;
         else if (nums[mid] > target)
             right = mid - 1;
-        else
-            return mid;
     }
-    return ans;
+    return -1;
 }
+// int Solution::search(vector<int> &nums, int target)
+// {
+//     int left = 0, right = nums.size() - 1, mid = -1, ans = -1;
+//     // 二分查找
+//     while (left <= right)
+//     {
+//         // 值范围[-1,nums.size()-1]
+//         // -> 返回右指针，右指针 = 中指针 - 1，可达到-1下标
+//         // -> 二分下标指向右侧
+//         // -> 跳出循环left <= right，此时left = right
+//         // 1、right - 1
+//         // 2、left = mid = right
+//         // nums[mid]和target
+//         // >:mid右侧舍弃 right = mid - 1;
+//         // <:mid左侧舍弃 left = mid;
+//         // =:此时left = mid或right = mid - 1;
+
+//         // 值范围[-1,nums.size()-1]
+//         // 循环跳出 left <= right,nums[mid] == target时返回mid
+//         // nums[mid] < target left = mid + 1
+//         // nums[mid] > target right = mid - 1
+//         mid = left + (right - left) / 2;
+//         if (nums[mid] < target)
+//             left = mid + 1;
+//         else if (nums[mid] > target)
+//             right = mid - 1;
+//         else
+//             return mid;
+//     }
+//     return ans;
+// }
 // int Solution::search(vector<int>& nums, int target) {
 // 	int left = 0, right = nums.size() - 1;
 // 	while (left <= right)
