@@ -27,12 +27,21 @@
 
 void Solution::rotate(vector<int> &nums, int k)
 {
-    int tmp = nums[0], idx1 = 0, idx2 = 0;
-    for (size_t i = 0; i < nums.size(); i++)
+    k = k % nums.size();
+    if (k == 0)
+        return;
+    for (size_t i = 0; i <= (nums.size() - 1) / 2; i++)
     {
-        idx2 = (idx1 + k) % nums.size();
-        tmp = nums[idx2];
-        nums[idx2] = nums[idx1];
-        idx1 = idx2;
+        swap(nums[i], nums[nums.size() - i - 1]);
     }
-};
+
+    for (size_t i = 0; i < (k - 1) / 2; i++)
+    {
+        swap(nums[i], nums[k - i - 1]);
+    }
+
+    for (size_t i = k; i <= (nums.size() + k - 1) / 2; i++)
+    {
+        swap(nums[i], nums[nums.size() + k - i - 1]);
+    }
+}
