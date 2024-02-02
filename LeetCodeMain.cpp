@@ -1,10 +1,10 @@
 #include "LeetCodeMain.hpp"
-// #include "LeetCode670.hpp"
+#include "LeetCode1.hpp"
 int main()
 {
-    // Solution solution;
-    // vector<int> nums = {2,3,4,3,4};
-    // solution.alternatingSubarray(nums);
+    Solution solution;
+    vector<int> nums = {3, 2, 4};
+    solution.twoSum(nums, 6);
     // std::cin.get();
     return 0;
 }
