@@ -1,10 +1,10 @@
 #include "LeetCodeMain.hpp"
-#include "LeetCode1.hpp"
+#include "LeetCode436.hpp"
 int main()
 {
     Solution solution;
-    vector<int> nums = {3, 2, 4};
-    solution.twoSum(nums, 6);
+    vector<vector<int>> nums = {{1, 2}};
+    solution.findRightInterval(nums);
     // std::cin.get();
     return 0;
 }
