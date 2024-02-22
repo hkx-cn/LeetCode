@@ -27,54 +27,5 @@
 //1 <= Node.val <= 10^4
 #include "LeetCode2641.hpp"
 TreeNode* Solution::replaceValueInTree(TreeNode* root){
-    if (root == nullptr) return root;
-
-    queue<TreeNode*> bfs;
-    queue<int> node_sum;
-    queue<int> depth;
-    int sum = 0, node = 0, idx = 0, count = 2;
-
-    bfs.push(root);
-    depth.push(root->val);
-    node_sum.push(root->val);
-
-    while(!bfs.empty()){
-        node = 0;
-        if (bfs.front() != nullptr){
-            bfs.push(bfs.front()->left);
-            bfs.push(bfs.front()->right);
-            if (bfs.front()->left != nullptr){
-                sum += bfs.front()->left->val;
-                node += bfs.front()->left->val;
-            }
-            if (bfs.front()->right != nullptr){
-                sum += bfs.front()->right->val;
-                node += bfs.front()->right->val;
-            }
-            node_sum.push(node);
-            node_sum.push(node);
-            idx += 2;
-            if (count <= 4 && bfs.front() != nullptr){
-                bfs.front()->val = 0;
-            }
-            else{
-                if (!depth.empty() && !node_sum.empty() && bfs.front() != nullptr)
-                    bfs.front()->val = depth.front() - node_sum.front();
-            }
-        }
-        else{
-            count--;
-        }
-        bfs.pop();
-        node_sum.pop(); 
-
-        if (idx >= count){
-            depth.pop();
-            depth.push(sum);
-            idx = 0;
-            sum = 0;
-            count *= 2;
-        }
-    }
     return root;
 }
