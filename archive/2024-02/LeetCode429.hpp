@@ -1,3 +1,4 @@
+#pragma once
 /*
 // Definition for a Node.
 class Node {

@@ -11,7 +11,7 @@
  * };
  */
 #include <vector>
-#include <stack>
+#include <queue>
 using namespace std;
 struct TreeNode {
     int val;
@@ -24,5 +24,8 @@ struct TreeNode {
 
 class Solution {
 public:
-    TreeNode* constructFromPrePost(vector<int>& preorder, vector<int>& postorder);
+    vector<vector<int>> closestNodes(TreeNode* root, vector<int>& queries);
+    void query(TreeNode* root, int target, vector<int>& result);
+    void dfs(TreeNode* root, vector<int>& nums);
+    void binarySearch(const vector<int>& root, int target, vector<int>& result);
 };
