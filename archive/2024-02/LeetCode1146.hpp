@@ -12,17 +12,13 @@ public:
     }
     
     void set(int index, int val) {
+        while (m_data[index].size() < m_index + 1) {
+            m_data[index].push_back(m_data[index][m_data[index].size() - 1]);
+        }
         m_data[index][m_data[index].size() - 1] = val;
     }
     
     int snap() {
-        for (size_t i = 0; i < m_data.size(); i++) {
-            if (m_data[i].size() == 1) {
-                m_data[i].push_back(m_data[i][m_data[i].size() - 1]);
-            } else if (m_data[i][m_data[i].size() - 1] != m_data[i][m_data[i].size() - 2]) {
-                m_data[i].push_back(m_data[i][m_data[i].size() - 1]);
-            }
-        }
         m_index++;
         return m_index - 1;
     }
