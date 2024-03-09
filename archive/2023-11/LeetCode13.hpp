@@ -5,3 +5,5 @@ class Solution {
 public:
     int romanToInt(string s);
 };
+
+int romanToInt(char* s);

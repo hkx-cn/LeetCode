@@ -43,6 +43,35 @@
 // IL 和 IM 这样的例子并不符合题目要求，49 应该写作 XLIX，999 应该写作 CMXCIX 。
 // 关于罗马数字的详尽书写规则，可以参考 罗马数字 - Mathematics 。
 #include "LeetCode13.hpp"
+int romanToInt(char* s) {
+    int i = 0, result = 0, temp = 0, index = 0;
+    char c[] = {'I', 'V', 'X', 'L', 'C', 'D', 'M'};
+    int num[] = {1, 5, 10, 50, 100, 500, 1000};
+    while (s[i] == '\0')
+    {
+        for (size_t j = 0; j < 7; j++)
+        {
+            if (map[j] == s[i])
+            {
+                if (j <= index)
+                {
+                    result += temp;
+                    temp = num[j];
+                    index = j;
+                }
+                else
+                {
+                    result -= temp;
+                    temp = num[j];
+                    index = j;
+                }
+                break;
+            }
+        }
+        i++;
+    }
+    return result + temp;
+}
 // int Solution::romanToInt(string s) {
 // 	//I             1
 // 	//V             5
