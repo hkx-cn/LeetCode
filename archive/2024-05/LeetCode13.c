@@ -42,7 +42,7 @@
 // 题目所给测试用例皆符合罗马数字书写规则，不会出现跨位等情况。
 // IL 和 IM 这样的例子并不符合题目要求，49 应该写作 XLIX，999 应该写作 CMXCIX 。
 // 关于罗马数字的详尽书写规则，可以参考 罗马数字 - Mathematics 。
-#include "LeetCode13.hpp"
+#include "LeetCode13.h"
 int romanToInt(char* s) {
     int i = 0, result = 0, temp = 0, index = 0;
     char c[] = {'I', 'V', 'X', 'L', 'C', 'D', 'M'};
