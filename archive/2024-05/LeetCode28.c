@@ -1,42 +1,83 @@
-//28. 找出字符串中第一个匹配项的下标
-//给你两个字符串 haystack 和 needle ，请你在 haystack 字符串中找出 needle 字符串的第一个匹配项的下标（下标从 0 开始）。如果 needle 不是 haystack 的一部分，则返回 - 1 。
+// 28. 找出字符串中第一个匹配项的下标
+// 给你两个字符串 haystack 和 needle ，请你在 haystack 字符串中找出 needle 字符串的第一个匹配项的下标（下标从 0 开始）。如果 needle 不是 haystack 的一部分，则返回 - 1 。
 //
-//示例 1：
-//输入：haystack = "sadbutsad", needle = "sad"
-//输出：0
-//解释："sad" 在下标 0 和 6 处匹配。
-//第一个匹配项的下标是 0 ，所以返回 0 。
+// 示例 1：
+// 输入：haystack = "sadbutsad", needle = "sad"
+// 输出：0
+// 解释："sad" 在下标 0 和 6 处匹配。
+// 第一个匹配项的下标是 0 ，所以返回 0 。
 
-//示例 2：
-//输入：haystack = "leetcode", needle = "leeto"
-//输出： - 1
-//解释："leeto" 没有在 "leetcode" 中出现，所以返回 - 1 。
+// 示例 2：
+// 输入：haystack = "leetcode", needle = "leeto"
+// 输出： - 1
+// 解释："leeto" 没有在 "leetcode" 中出现，所以返回 - 1 。
 //
-//提示：
-//1 <= haystack.length, needle.length <= 10^4
-//haystack 和 needle 仅由小写英文字符组成
+// 提示：
+// 1 <= haystack.length, needle.length <= 10^4
+// haystack 和 needle 仅由小写英文字符组成
 
-#include "LeetCode28.hpp"
+#include "LeetCode28.h"
 
-int Solution::strStr(string haystack, string needle) { 
-	bool isFind = false;
-	if (haystack.size() < needle.size()) { return -1; }
-	for (size_t i = 0; i < haystack.size() - needle.size(); i++)
-	{
-		isFind = true;
-		for (size_t j = 0; j < needle.size(); j++)
-		{
-			if (haystack[i + j] != needle[j]) {
-				isFind = false; break;
-			}
-		}
-		if (isFind)
-		{
-			return i;
-		}
-	}
-	return -1;
+int strStr(char *haystack, char *needle){
+    int i = 0, j = 0, k = 0;
+    int result = -1;
+    while (haystack[i] != '\0')
+    {
+        if (haystack[i] == needle[0])
+        {
+            j = 0;
+            k = i;
+            result = 0;
+            while (haystack[k] != '\0' && needle[j] != '\0')
+            {
+                if (haystack[k] != needle[j])
+                {
+                    result = -1;
+                    break;
+                }
+                else
+                {
+                    j++;
+                    k++;
+                }
+            }
+            if (result == 0 && needle[j] == '\0')
+            {
+                result = i;
+                break;
+            }
+        }
+        i++;
+        result = -1;
+    }
+    return result;
 }
+
+// int Solution::strStr(string haystack, string needle)
+// {
+//     bool isFind = false;
+//     if (haystack.size() < needle.size())
+//     {
+//         return -1;
+//     }
+//     for (size_t i = 0; i < haystack.size() - needle.size(); i++)
+//     {
+//         isFind = true;
+//         for (size_t j = 0; j < needle.size(); j++)
+//         {
+//             if (haystack[i + j] != needle[j])
+//             {
+//                 isFind = false;
+//                 break;
+//             }
+//         }
+//         if (isFind)
+//         {
+//             return i;
+//         }
+//     }
+//     return -1;
+// }
 
 // 前言
 // 本题是经典的字符串单模匹配的模型，因此可以使用字符串匹配算法解决，常见的字符串匹配算法包括暴力匹配、Knuth-Morris-Pratt 算法、Boyer-Moore 算法、Sunday 算法等，本文将讲解 Knuth-Morris-Pratt 算法。
@@ -64,7 +105,7 @@ int Solution::strStr(string haystack, string needle) {
 //         }
 //         return -1;
 //     }
-// }; 
+// };
 // 复杂度分析
 // 时间复杂度：O(n×m)，其中 n 是字符串 haystack 的长度，m 是字符串 needle 的长度。最坏情况下我们需要将字符串 needle 与字符串 haystack 的所有长度为 m 的子串均匹配一次。
 // 空间复杂度：O(1)。我们只需要常数的空间保存若干变量。
@@ -99,7 +140,7 @@ int Solution::strStr(string haystack, string needle) {
 // 1.j 要求尽可能大，且满足 s[0:j−1]=s[i−j:i−1]；
 // 2.j 要求满足 s[i]=s[j]。
 // 由 π(i−1) 定义可知：
-// s[0:π(i−1)−1]=s[i−π(i−1):i−1] (1) 
+// s[0:π(i−1)−1]=s[i−π(i−1):i−1] (1)
 // 那么 j=π(i−1) 符合第一个要求。如果 s[i]=s[π(i−1)]，我们就可以确定 π(i)。
 // 否则如果 s[i]≠s[π(i−1)]，那么 π(i)≤π(i−1)，因为 j=π(i)−1，所以 j < π(i−1)，于是可以取 (1) 式两子串的长度为 j 的后缀，它们依然是相等的：s[π(i−1)−j:π(i−1)−1]=s[i−j:i−1]。
 // 当 s[i]≠s[π(i−1)]时，我们可以修改我们的方案为：找到最大的 j，满足 s[0:j−1]=s[π(i−1)−j:π(i−1)−1]，且 s[i]=s[π(i−1)]（这样就有 s[0:j]=s[π(i−1)−j:π(i−1)]，即 π(i)=π(i−1)+1）。
