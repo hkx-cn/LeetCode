@@ -20,48 +20,81 @@
 // nums 中的每个值都 独一无二
 // 题目数据保证 nums 在预先未知的某个下标上进行了旋转
 // -10^4 <= target <= 10^4
-#include "LeetCode33.hpp"
-int Solution::search(vector<int> &nums, int target)
-{
-    int left = 0, right = nums.size() - 1, mid = -1, result = -1;
+#include "LeetCode33.h"
+int search(int* nums, int numsSize, int target) {
+    int left = 0, right = numsSize - 1, mid = -1, result = -1;
     while (left <= right)
     {
         mid = left + (right - left + 1) / 2;
-        if (nums[left] < nums[mid])
+        if (nums[mid] == target)
         {
-            result = binarySearch(nums, left, mid, target);
-            if (result != -1)
-                return result;
-            else
-                left = mid + 1;
+            result = mid;
+            break;
         }
-        else
+        else if (nums[left] <= target && target < nums[mid])
         {
-            result = binarySearch(nums, mid, right, target);
-            if (result != -1)
-                return result;
-            else
-                right = mid - 1;
+            right = mid - 1;    
         }
-    }
-    return -1;
-}
-
-int Solution::binarySearch(vector<int> &nums, int left, int right, int target)
-{
-    int mid = -1;
-    while (left < right)
-    {
-        mid = left + (right - left + 1) / 2;
-        if (nums[mid] <= target)
-            left = mid;
-        else
+        else if (nums[mid] < target && target <= nums[right])
+        {
+            left = mid + 1;
+        }
+        else if (nums[left] > nums[mid])
+        {
             right = mid - 1;
+        }
+        else if (nums[right] < nums[mid])
+        {
+            left = mid + 1;
+        }
+        else
+        {
+            break;
+        }
     }
-    if (nums[left] == target)
-        return left;
-    return -1;
+    return result;
 }
+// int Solution::search(vector<int> &nums, int target)
+// {
+//     int left = 0, right = nums.size() - 1, mid = -1, result = -1;
+//     while (left <= right)
+//     {
+//         mid = left + (right - left + 1) / 2;
+//         if (nums[left] < nums[mid])
+//         {
+//             result = binarySearch(nums, left, mid, target);
+//             if (result != -1)
+//                 return result;
+//             else
+//                 left = mid + 1;
+//         }
+//         else
+//         {
+//             result = binarySearch(nums, mid, right, target);
+//             if (result != -1)
+//                 return result;
+//             else
+//                 right = mid - 1;
+//         }
+//     }
+//     return -1;
+// }
+
+// int Solution::binarySearch(vector<int> &nums, int left, int right, int target)
+// {
+//     int mid = -1;
+//     while (left < right)
+//     {
+//         mid = left + (right - left + 1) / 2;
+//         if (nums[mid] <= target)
+//             left = mid;
+//         else
+//             right = mid - 1;
+//     }
+//     if (nums[left] == target)
+//         return left;
+//     return -1;
+// }
 // 方法一：二分查找
 // 思路和算法 
 // 对于有序数组，可以使用二分查找的方法查找元素。 
