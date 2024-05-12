@@ -18,44 +18,87 @@
 //- 10^9 <= nums[i] <= 10^9
 // nums 是一个非递减数组
 //- 10^9 <= target <= 10^9
-#include "LeetCode34.hpp"
-vector<int> Solution::searchRange(vector<int> &nums, int target)
-{
-	vector<int> result = {-1, -1};
-	int left = 0, right = nums.size() - 1, mid = -1;
-	while (left < right)
-	{
-		mid = left + (right - left) / 2;
-		if (nums[mid] < target)
-			left = mid + 1;
-		else if (nums[mid] > target)
-			right = mid - 1;
-		else
-		{
-			left = mid;
-			break;
-		}
-	}
-	if (nums[left] != target)
-	{
-		return result;
-	}
-	else
-	{
-		right = left;
-		while (left >= 0)
-		{
-			if (nums[left] )
-			{
-				
-			}
-		}
-		while (right < nums.size())
-		{
-			
-		}
-	}
+#include "LeetCode34.h"
+int* searchRange(int* nums, int numsSize, int target, int* returnSize) {
+    // 二分查找
+    int left = 0, right = numsSize - 1, mid = -1, result = -1;
+    int *returnArray = malloc(sizeof(int) * 2);
+    *returnSize = 2;
+    while (left <= right)
+    {
+        mid = left + (right - left) / 2;
+        if (nums[mid] == target)
+        {
+            result = mid;
+            break;
+        }
+        else if (nums[mid] < target)
+        {
+            left = mid + 1;
+        }
+        else if (nums[mid] > target)
+        {
+            right = mid - 1;
+        }
+    }
+    if (result == -1)
+    {
+        returnArray[0] = -1;
+        returnArray[1] = -1;
+    }
+    else
+    {
+        left = result;
+        right = result;
+        while (left >= 0 && nums[left] == target)
+        {
+            left--;
+        }
+        while (right < numsSize && nums[right] == target)
+        {
+            right++;
+        }
+        returnArray[0] = left + 1;
+        returnArray[1] = right - 1;
+    }
+    return returnArray;
 }
+
+// vector<int> Solution::searchRange(vector<int> &nums, int target)
+// {
+//     vector<int> result = {-1, -1};
+//     int left = 0, right = nums.size() - 1, mid = -1;
+//     while (left < right)
+//     {
+//         mid = left + (right - left) / 2;
+//         if (nums[mid] < target)
+//             left = mid + 1;
+//         else if (nums[mid] > target)
+//             right = mid - 1;
+//         else
+//         {
+//             left = mid;
+//             break;
+//         }
+//     }
+//     if (nums[left] != target)
+//     {
+//         return result;
+//     }
+//     else
+//     {
+//         right = left;
+//         while (left >= 0)
+//         {
+//             if (nums[left])
+//             {
+//             }
+//         }
+//         while (right < nums.size())
+//         {
+//         }
+//     }
+// }
 
 // vector<int> Solution::searchRange(vector<int>& nums, int target) {
 // 	vector<int> result{ -1,-1 };
