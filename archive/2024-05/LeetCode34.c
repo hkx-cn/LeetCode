@@ -22,7 +22,7 @@
 int* searchRange(int* nums, int numsSize, int target, int* returnSize) {
     // 二分查找
     int left = 0, right = numsSize - 1, mid = -1, result = -1;
-    int *returnArray = malloc(sizeof(int) * 2);
+    int *returnArray = (int *)malloc(sizeof(int) * 2);
     *returnSize = 2;
     while (left <= right)
     {
