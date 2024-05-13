@@ -28,5 +28,5 @@
 //1 <= target <= 10^6
 #include "LeetCode1498.hpp"
 int Solution::numSubseq(vector<int>& nums, int target){
-    
+    return 0;
 }

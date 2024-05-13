@@ -20,5 +20,5 @@
 //-10^6 <= nums1[i], nums2[i] <= 10^6
 #include "LeetCode4.hpp"
 double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2){
-    
+    return 0.0;
 }
