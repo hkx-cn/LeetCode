@@ -1,4 +1,4 @@
-﻿cmake_minimum_required(VERSION 3.8)
+﻿cmake_minimum_required(VERSION 3.20)
 
 # 如果支持，请为 MSVC 编译器启用热重载。
 if(POLICY CMP0141)
@@ -8,12 +8,27 @@ endif()
 
 project("LeetCode")
 
-aux_source_directory(. src)
+aux_source_directory(. SRC)
+# aux_source_directory(archive/2023-11 SRC_202311)
+# aux_source_directory(archive/2023-12 SRC_202312)
+# aux_source_directory(archive/2024-01 SRC_202401)
+# aux_source_directory(archive/2024-02 SRC_202402)
+# aux_source_directory(archive/2024-03 SRC_202403)
+# aux_source_directory(archive/2024-05 SRC_202405)
+aux_source_directory(archive/2024-09 SRC_202409)
 
-add_executable(LeetCode ${src})
+add_executable(LeetCode ${SRC} ${SRC_202311} ${SRC_202312} ${SRC_202401} ${SRC_202402} ${SRC_202403} ${SRC_202405} ${SRC_202409})
+
+target_include_directories(LeetCode PRIVATE
+                                            # archive/2023-11
+                                            # archive/2023-12
+                                            # archive/2024-01
+                                            # archive/2024-02
+                                            # archive/2024-03
+                                            # archive/2024-05
+                                            archive/2024-09
+                                            .)
 
 if(CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET LeetCode PROPERTY CXX_STANDARD 20)
 endif()
-
-# TODO: 如有需要，请添加测试并安装目标。
