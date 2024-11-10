@@ -8,3 +8,5 @@ class Solution {
 public:
     int maxScore(string s);
 };
+
+int maxScore(char* s);

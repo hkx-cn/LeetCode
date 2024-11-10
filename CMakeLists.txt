@@ -15,7 +15,7 @@ aux_source_directory(. SRC)
 # aux_source_directory(archive/2024-02 SRC_202402)
 # aux_source_directory(archive/2024-03 SRC_202403)
 # aux_source_directory(archive/2024-05 SRC_202405)
-aux_source_directory(archive/2024-09 SRC_202409)
+# aux_source_directory(archive/2024-09 SRC_202409)
 aux_source_directory(archive/2024-11 SRC_202411)
 
 add_executable(LeetCode ${SRC} ${SRC_202311} ${SRC_202312} ${SRC_202401} ${SRC_202402} ${SRC_202403} ${SRC_202405} ${SRC_202409} ${SRC_202411})
@@ -27,7 +27,7 @@ target_include_directories(LeetCode PRIVATE
                                             # archive/2024-02
                                             # archive/2024-03
                                             # archive/2024-05
-                                            archive/2024-09
+                                            # archive/2024-09
                                             archive/2024-11
                                             .)
 
