@@ -8,3 +8,5 @@ class Solution {
 public:
     double average(vector<int>& salary);
 };
+
+double average(int* salary, int salarySize);

@@ -1,6 +1,6 @@
 // 1491. 去掉最低工资和最高工资后的工资平均值
-// 给你一个整数数组 salary ，数组里每个数都是 唯一 的，其中 salary[i] 是第 i 个员工的工资。
-// 请你返回去掉最低工资和最高工资以后，剩下员工工资的平均值。
+// 给你一个整数数组 salary ，数组里每个数都是 唯一 的，其中 salary[i] 是第 i
+// 个员工的工资。 请你返回去掉最低工资和最高工资以后，剩下员工工资的平均值。
 
 // 示例 1：
 // 输入：salary = [4000,3000,1000,2000]
@@ -26,19 +26,29 @@
 // 与真实值误差在 10^-5 以内的结果都将视为正确答案。
 #include "LeetCode1491.hpp"
 
-double Solution::average(vector<int> &salary)
-{
-    // 10^3 <= salary[i] <= 10^6
-    int min = 10000000, max = 0;
-    double result;
-    for (size_t i = 0; i < salary.size(); i++)
-    {
+double average(int *salary, int salarySize) {
+    int max = 0, min = 100000000;
+    double result = 0.0;
+    for (int i = 0; i < salarySize; i++) {
         result += salary[i];
-        min = min < salary[i] ? min : salary[i];
         max = max > salary[i] ? max : salary[i];
+        min = min < salary[i] ? min : salary[i];
     }
-    return (result - min - max) / (salary.size() - 2);
+    return (result - min - max) / (salarySize - 2);
 }
+
+// double Solution::average(vector<int> &salary) {
+//     // 10^3 <= salary[i] <= 10^6
+//     int min = 10'000'000, max = 0;
+//     double result;
+//     for (size_t i = 0; i < salary.size(); i++) {
+//         result += salary[i];
+//         min = min < salary[i] ? min : salary[i];
+//         max = max > salary[i] ? max : salary[i];
+//     }
+//     return (result - min - max) / (salary.size() - 2);
+// }
+
 // double Solution::average(vector<int> &salary)
 // {
 //     double result = 0;
@@ -56,16 +66,18 @@ double Solution::average(vector<int> &salary)
 // 找到一个最小值 minValue；
 // 然后对所有元素求和后减去这两个值 sum=(∑isalary[i])−maxValue−minValue；
 // 求平均值 sum/[salary.size()−2]。
-// 因为这里保证了 salary 数组的长度至少是 3，所以我们不用特殊考虑 maxValue 和 minValu 是同一个的问题，因为如果它们相等的话（假设等于 x），这个序列里面所有元素都应该是 x，不影响计算结果。
-// class Solution {
+// 因为这里保证了 salary 数组的长度至少是 3，所以我们不用特殊考虑 maxValue 和
+// minValu 是同一个的问题，因为如果它们相等的话（假设等于
+// x），这个序列里面所有元素都应该是 x，不影响计算结果。 class Solution {
 // public:
 //     double average(vector<int>& salary) {
 //         double maxValue = *max_element(salary.begin(), salary.end());
 //         double minValue = *min_element(salary.begin(), salary.end());
-//         double sum = accumulate(salary.begin(), salary.end(), - maxValue - minValue);
-//         return sum / int(salary.size() - 2);
+//         double sum = accumulate(salary.begin(), salary.end(), - maxValue -
+//         minValue); return sum / int(salary.size() - 2);
 //     }
 // };
 // 复杂度
-// 时间复杂度：O(n)。选取最大值、最小值和求和的过程的时间代价都是 O(n)，故渐进时间复杂度为 O(n)。
+// 时间复杂度：O(n)。选取最大值、最小值和求和的过程的时间代价都是
+// O(n)，故渐进时间复杂度为 O(n)。
 // 空间复杂度：O(1)。这里只用到了常量级别的辅助空间。
