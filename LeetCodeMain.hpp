@@ -1,2 +1,2 @@
-﻿#pragma once 
-#include <iostream> 
+﻿#pragma once
+#include <iostream>
