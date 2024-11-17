@@ -1,12 +1,12 @@
 #pragma once
-#ifndef LEETCODE2586_H
-#define LEETCODE2586_H
 #include <vector>
-#include <iostream>
+#include <string>
+#include <cstring>
+
 using namespace std;
 class Solution {
 public:
     int vowelStrings(vector<string>& words, int left, int right);
 };
-#endif // !LEETCODE2586_H
 
+int vowelStrings(char** words, int wordsSize, int left, int right);
