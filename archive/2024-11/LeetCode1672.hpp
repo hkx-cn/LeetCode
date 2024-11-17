@@ -7,3 +7,5 @@ class Solution {
 public:
     int maximumWealth(vector<vector<int>>& accounts);
 };
+
+int maximumWealth(int** accounts, int accountsSize, int* accountsColSize);
