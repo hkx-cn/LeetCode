@@ -8,3 +8,5 @@ class Solution {
 public:
     bool isAnagram(string s, string t);
 };
+
+bool isAnagram(char* s, char* t);
