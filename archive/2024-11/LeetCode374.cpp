@@ -36,23 +36,23 @@
  * int guess(int num);
  */
 #include "LeetCode374.hpp"
-int guess(int num);
-
-int guessNumber(int n){
-    // 二分查找
-    int left = 1, right = n, mid = -1;
-    while (left <= right) {
-        mid = left + (right - left) / 2;
-        if (guess(mid) == 0) {
-            break;
-        } else if (guess(mid) == 1) {
-            left = mid + 1;
-        } else if (guess(mid) == -1) {
-            right = mid - 1;
-        }
-    }
-    return mid;
-}
+// int guess(int num);
+//
+// int guessNumber(int n){
+//     // 二分查找
+//     int left = 1, right = n, mid = -1;
+//     while (left <= right) {
+//         mid = left + (right - left) / 2;
+//         if (guess(mid) == 0) {
+//             break;
+//         } else if (guess(mid) == 1) {
+//             left = mid + 1;
+//         } else if (guess(mid) == -1) {
+//             right = mid - 1;
+//         }
+//     }
+//     return mid;
+// }
 
 // int Solution::guessNumber(int n) {
 //     // 二分查找
