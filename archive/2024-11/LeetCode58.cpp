@@ -1,5 +1,6 @@
 // 58. 最后一个单词的长度
-//  给你一个字符串 s，由若干单词组成，单词前后用一些空格字符隔开。返回字符串中 最后一个 单词的长度。
+// 给你一个字符串 s，由若干单词组成，单词前后用一些空格字符隔开。返回字符串中
+// 最后一个 单词的长度。
 
 // 单词 是指仅由字母组成、不包含任何空格字符的最大子字符串。
 // 示例 1：
@@ -21,28 +22,39 @@
 // s 中至少存在一个单词
 #include "LeetCode58.hpp"
 
-int Solution::lengthOfLastWord(string s)
-{
-	for (int i = s.size() - 1; i >= 0; i--)
-	{
-		if (s[i] == ' ')
-			s.erase(s.end() - 1);
-		else
-			break;
-	}
-	if (s.size() == 0)
-		return 0;
-	int idx_l = 0, idx_r = s.size();
-	for (int i = s.size() - 1; i >= 0; i--)
-	{
-		if (s[i] == ' ')
-		{
-			idx_l = i;
-			break;
-		}
-	}
-	return idx_r - idx_l;
+int lengthOfLastWord(char* s) {
+    int wordLen = 0, index = strlen(s);
+    while (s[index - 1] == ' ') {
+        index--;
+    }
+    while (index >= 1 && s[index - 1] != ' ') {
+        wordLen++;
+        index--;
+    }
+    return wordLen;
 }
+
+// int Solution::lengthOfLastWord(string s) {
+//     for (int i = s.size() - 1; i >= 0; i--) {
+//         if (s[i] == ' ') {
+//             s.erase(s.end() - 1);
+//         } else {
+//             break;
+//         }
+//     }
+//     if (s.size() == 0) {
+//         return 0;
+//     }
+//     int idx_l = 0, idx_r = s.size();
+//     for (int i = s.size() - 1; i >= 0; i--) {
+//         if (s[i] == ' ') {
+//             idx_l = i;
+//             break;
+//         }
+//     }
+//     return idx_r - idx_l;
+// }
+
 // 方法一：反向遍历
 // 题目要求得到字符串中最后一个单词的长度，可以反向遍历字符串，寻找最后一个单词并计算其长度。
 // 由于字符串中至少存在一个单词，因此字符串中一定有字母。首先找到字符串中的最后一个字母，该字母即为最后一个单词的最后一个字母。
