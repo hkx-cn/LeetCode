@@ -6,3 +6,5 @@ class Solution {
 public:
     int triangleNumber(vector<int>& nums);
 };
+
+int triangleNumber(int* nums, int numsSize);
