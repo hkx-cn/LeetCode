@@ -20,28 +20,45 @@
 // 1 <= m, n <= 100
 // -10^4 <= matrix[i][j], target <= 10^4
 #include "LeetCode74.hpp"
-bool Solution::searchMatrix(vector<vector<int>> &matrix, int target)
-{
-    // 结果范围[0,m*n-1]
-    int left = 0, right = matrix.size() * matrix[0].size() - 1, mid = -1, i, j;
-    while (left <= right)
-    {
-        mid = left + (right - left + 1) / 2;
-        i = mid / matrix[0].size();
-        j = mid % matrix[0].size();
-        if (matrix[i][j] < target)
-            left = mid + 1;
-        else if (matrix[i][j] > target)
-            right = mid - 1;
-        else
+
+bool searchMatrix(int** matrix, int matrixSize, int* matrixColSize, int target) {
+    int nums = matrixSize * *matrixColSize;
+    int left = 0, right = nums - 1, mid = -1;
+    while (left <= right) {
+        mid = left + (right - left) / 2;
+        if (matrix[mid / *matrixColSize][mid % *matrixColSize] == target) {
             return true;
+        } else if (matrix[mid / *matrixColSize][mid % *matrixColSize] < target) {
+            left = mid + 1;
+        } else if (matrix[mid / *matrixColSize][mid % *matrixColSize] > target) {
+            right = mid - 1;
+        }
     }
     return false;
 }
+
+// bool Solution::searchMatrix(vector<vector<int>>& matrix, int target) {
+//     // 结果范围[0,m*n-1]
+//     int left = 0, right = matrix.size() * matrix[0].size() - 1, mid = -1, i, j;
+//     while (left <= right) {
+//         mid = left + (right - left + 1) / 2;
+//         i = mid / matrix[0].size();
+//         j = mid % matrix[0].size();
+//         if (matrix[i][j] < target) {
+//             left = mid + 1;
+//         } else if (matrix[i][j] > target) {
+//             right = mid - 1;
+//         } else {
+//             return true;
+//         }
+//     }
+//     return false;
+// }
+
 // bool Solution::searchMatrix(vector<vector<int>> &matrix, int target)
 // {
-//     int left = 0, right = matrix.size() * matrix[0].size() - 1, mid = -1, i, j;
-//     while (left <= right)
+//     int left = 0, right = matrix.size() * matrix[0].size() - 1, mid = -1, i,
+//     j; while (left <= right)
 //     {
 //         mid = left + (right - left) / 2;
 //         i = mid / matrix[0].size();
@@ -62,7 +79,8 @@ bool Solution::searchMatrix(vector<vector<int>> &matrix, int target)
 // class Solution {
 // public:
 //     bool searchMatrix(vector<vector<int>> matrix, int target) {
-//         auto row = upper_bound(matrix.begin(), matrix.end(), target, [](const int b, const vector<int> &a) {
+//         auto row = upper_bound(matrix.begin(), matrix.end(), target, [](const
+//         int b, const vector<int> &a) {
 //             return b < a[0];
 //         });
 //         if (row == matrix.begin()) {
@@ -73,8 +91,8 @@ bool Solution::searchMatrix(vector<vector<int>> &matrix, int target)
 //     }
 // };
 // 复杂度分析
-// 时间复杂度：O(log⁡m+log⁡n)=O(log⁡mn)，其中 m 和 n 分别是矩阵的行数和列数。
-// 空间复杂度：O(1)。
+// 时间复杂度：O(logm+logn)=O(logmn)，其中 m 和 n
+// 分别是矩阵的行数和列数。 空间复杂度：O(1)。
 
 // 方法二：一次二分查找
 // 思路
@@ -100,7 +118,6 @@ bool Solution::searchMatrix(vector<vector<int>> &matrix, int target)
 //     }
 // };
 // 复杂度分析
-// 时间复杂度：O(log⁡mn)，其中 m 和 n 分别是矩阵的行数和列数。
-// 空间复杂度：O(1)。
-// 结语
+// 时间复杂度：O(logmn)，其中 m 和 n
+// 分别是矩阵的行数和列数。 空间复杂度：O(1)。 结语
 // 两种方法殊途同归，都利用了二分查找，在二维矩阵上寻找目标值。值得注意的是，若二维数组中的一维数组的元素个数不一，方法二将会失效，而方法一则能正确处理。
