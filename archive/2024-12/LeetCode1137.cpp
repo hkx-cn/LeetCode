@@ -17,19 +17,17 @@
 // 0 <= n <= 37
 // 答案保证是一个 32 位整数，即 answer <= 2^31 - 1。
 #include "LeetCode1137.hpp"
-int Solution::tribonacci(int n)
-{
+
+int tribonacci(int n) {
     int t0 = 0, t1 = 1, t2 = 1, result = 0;
-    if (n == 0)
-        return 0;
-    else if (n == 1)
-        return 1;
-    else if (n == 2)
-        return 1;
-    else
-    {
-        for (size_t i = 3; i <= n; i++)
-        {
+    if (n == 0) {
+        result = 0;
+    } else if (n == 1) {
+        result = 1;
+    } else if (n == 2) {
+        result = 1;
+    } else {
+        for (int i = 3; i <= n; i++) {
             result = t0 + t1 + t2;
             t0 = t1;
             t1 = t2;
@@ -37,7 +35,29 @@ int Solution::tribonacci(int n)
         }
     }
     return result;
-};
+}
+
+// int Solution::tribonacci(int n)
+// {
+//     int t0 = 0, t1 = 1, t2 = 1, result = 0;
+//     if (n == 0)
+//         return 0;
+//     else if (n == 1)
+//         return 1;
+//     else if (n == 2)
+//         return 1;
+//     else
+//     {
+//         for (size_t i = 3; i <= n; i++)
+//         {
+//             result = t0 + t1 + t2;
+//             t0 = t1;
+//             t1 = t2;
+//             t2 = result;
+//         }
+//     }
+//     return result;
+// };
 // 方法一：动态规划
 // 泰波那契数的边界条件是 T(0)=0,T(1)=1,T(2)=1。当 n>2 时，每一项的和都等于前三项的和，因此有如下递推关系：
 // T(n)=T(n−1)+T(n−2)+T(n−3)
@@ -112,5 +132,5 @@ int Solution::tribonacci(int n)
 //     }
 // };
 // 复杂度分析 
-// 时间复杂度：O(log⁡n)。 
+// 时间复杂度：O(logn)。 
 // 空间复杂度：O(1)。
