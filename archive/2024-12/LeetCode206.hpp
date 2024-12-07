@@ -1,4 +1,5 @@
 #pragma once 
+#include <cstdlib>
 
 //  Definition for singly-linked list.
 struct ListNode
@@ -14,4 +15,13 @@ class Solution
 {
 public:
     ListNode *reverseList(ListNode *head);
-}; 
+};
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+struct ListNode* reverseList(struct ListNode* head);
