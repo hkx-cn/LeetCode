@@ -1,4 +1,5 @@
-#pragma once 
+#pragma once
+#include <cstdlib>
 
 // Definition for singly-linked list.
 struct ListNode
@@ -13,4 +14,13 @@ struct ListNode
 class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* list1, ListNode* list2);
-}; 
+};
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2);

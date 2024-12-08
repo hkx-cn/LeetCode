@@ -15,6 +15,43 @@
 // -100 <= Node.val <= 100
 // l1 和 l2 均按 非递减顺序 排列
 #include "LeetCode21.hpp"
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2) {
+    struct ListNode* result = (struct ListNode*)malloc(sizeof(struct ListNode)), *next = result;
+    while (list1 != NULL || list2 != NULL) {
+        if (list1 == NULL) {
+            next->next = (struct ListNode*)malloc(sizeof(struct ListNode));
+            next->next->val = list2->val;
+            next = next->next;
+            list2 = list2->next;
+        } else if (list2 == NULL) {
+            next->next = (struct ListNode*)malloc(sizeof(struct ListNode));
+            next->next->val = list1->val;
+            next = next->next;
+            list1 = list1->next;
+        } else if (list1->val > list2->val) {
+            next->next = (struct ListNode*)malloc(sizeof(struct ListNode));
+            next->next->val = list2->val;
+            next = next->next;
+            list2 = list2->next;
+        } else if (list1->val <= list2->val) {
+            next->next = (struct ListNode*)malloc(sizeof(struct ListNode));
+            next->next->val = list1->val;
+            next = next->next;
+            list1 = list1->next;
+        }
+    }
+    next->next = NULL;
+    return result->next;
+}
+
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -26,37 +63,37 @@
  * };
  */
 
-// 迭代
-ListNode *Solution::mergeTwoLists(ListNode *list1, ListNode *list2)
-{
-    ListNode* result = new ListNode(),*next = result;
-    while (list1 != nullptr || list2 != nullptr)
-    {
-        if (list1 == nullptr)
-        {
-            next->next = list2;
-            break;
-        }
-        else if (list2 == nullptr)
-        {
-            next->next = list1;
-            break;
-        }
-        else if (list1->val <= list2->val)
-        {
-            next->next = list1;
-            next = next->next;
-            list1 = list1->next; 
-        }
-        else
-        {
-            next->next = list2;
-            next = next->next;
-            list2 = list2->next;
-        } 
-    }
-    return result->next;
-};
+// // 迭代
+// ListNode *Solution::mergeTwoLists(ListNode *list1, ListNode *list2)
+// {
+//     ListNode* result = new ListNode(),*next = result;
+//     while (list1 != nullptr || list2 != nullptr)
+//     {
+//         if (list1 == nullptr)
+//         {
+//             next->next = list2;
+//             break;
+//         }
+//         else if (list2 == nullptr)
+//         {
+//             next->next = list1;
+//             break;
+//         }
+//         else if (list1->val <= list2->val)
+//         {
+//             next->next = list1;
+//             next = next->next;
+//             list1 = list1->next; 
+//         }
+//         else
+//         {
+//             next->next = list2;
+//             next = next->next;
+//             list2 = list2->next;
+//         } 
+//     }
+//     return result->next;
+// };
 
 // // 递归
 // ListNode *Solution::mergeTwoLists(ListNode *list1, ListNode *list2)
