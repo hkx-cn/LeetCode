@@ -1,5 +1,6 @@
 #pragma once
 #include <stack>
+#include <cstdlib>
 using namespace std;
 
 // Definition for singly-linked list.
@@ -15,3 +16,12 @@ class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2);
 };
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2);
