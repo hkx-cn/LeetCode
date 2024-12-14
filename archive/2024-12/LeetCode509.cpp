@@ -21,21 +21,34 @@
 // 提示：
 // 0 <= n <= 30
 #include "LeetCode509.hpp"
-int Solution::fib(int n)
-{
-    int f0 = 0, f1 = 1, temp = 0;
-    if (n == 1)
-        return f0;
-    if (n == 2)
-        return f1;
-    for (size_t i = 2; i <= n; i++)
-    {
-        temp = f0 + f1;
-        f0 = f1;
-        f1 = temp;
+
+int fib(int n) {
+    int n0 = 0, n1 = 1, temp = 0;
+    if (n <= 1) {
+        return n;
     }
-    return f1;
+    for (int i = 0; i < n - 1; i++) {
+        temp = n0 + n1;
+        n0 = n1;
+        n1 = temp;
+    }
+    return temp;
 }
+
+// int Solution::fib(int n) {
+//     int f0 = 0, f1 = 1, temp = 0;
+//     if (n == 1)
+//         return f0;
+//     if (n == 2)
+//         return f1;
+//     for (size_t i = 2; i <= n; i++)
+//     {
+//         temp = f0 + f1;
+//         f0 = f1;
+//         f1 = temp;
+//     }
+//     return f1;
+// }
 // int Solution::fib(int n)
 // {
 //     int a = 0, b = 1, result = 0;
@@ -121,7 +134,7 @@ int Solution::fib(int n)
 //     }
 // };
 // 复杂度分析
-// 时间复杂度：O(log⁡n)。
+// 时间复杂度：O(logn)。
 // 空间复杂度：O(1)。
 
 // 方法三：通项公式
