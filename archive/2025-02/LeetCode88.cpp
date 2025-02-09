@@ -29,29 +29,52 @@
 // 进阶：你可以设计实现一个时间复杂度为 O(m + n) 的算法解决此问题吗？
 #include "LeetCode88.hpp"
 
-void Solution::merge(vector<int> &nums1, int m, vector<int> &nums2, int n)
-{
-    while (m > 0 && n > 0)
-    {
-        if (nums1[m - 1] > nums2[n - 1])
-        {
-            nums1[m + n - 1] = nums1[m - 1];
-            m--;
-        }
-        else
-        {
-            nums1[m + n - 1] = nums2[n - 1];
-            n--;
-        }
-    }
-    if (m <= 0)
-    {
-        for (size_t i = 0; i < n; i++)
-        {
-            nums1[i] = nums2[i];
+void Solution::merge(vector<int> &nums1, int m, vector<int> &nums2, int n) {
+    int idx1 = m - 1, idx2 = n - 1, cur = m + n - 1;
+    while (cur > idx1) {
+        if (idx1 < 0) {
+            swap(nums2[idx2], nums1[cur]);
+            idx2--;
+            cur--;
+        } else if (idx2 < 0) {
+            swap(nums1[idx1], nums1[cur]);
+            idx1--;
+            cur--;
+        } else if (nums1[idx1] > nums2[idx2]) {
+            swap(nums1[idx1], nums1[cur]);
+            idx1--;
+            cur--;
+        } else {
+            swap(nums2[idx2], nums1[cur]);
+            idx2--;
+            cur--;
         }
     }
 }
+
+// void Solution::merge(vector<int> &nums1, int m, vector<int> &nums2, int n)
+// {
+//     while (m > 0 && n > 0)
+//     {
+//         if (nums1[m - 1] > nums2[n - 1])
+//         {
+//             nums1[m + n - 1] = nums1[m - 1];
+//             m--;
+//         }
+//         else
+//         {
+//             nums1[m + n - 1] = nums2[n - 1];
+//             n--;
+//         }
+//     }
+//     if (m <= 0)
+//     {
+//         for (size_t i = 0; i < n; i++)
+//         {
+//             nums1[i] = nums2[i];
+//         }
+//     }
+// }
 // void Solution::merge(vector<int> &nums1, int m, vector<int> &nums2, int n)
 // {
 //     int idx1 = 0, idx2 = 0, idx3 = 0;
