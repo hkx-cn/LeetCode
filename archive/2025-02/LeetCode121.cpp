@@ -17,24 +17,39 @@
 // 1 <= prices.length <= 10^5
 // 0 <= prices[i] <= 10^4
 #include "LeetCode121.hpp"
-int Solution::maxProfit(vector<int> &prices)
-{
-    int left = 0, right = 0, result = 0;
-    for (int i = 0; i < prices.size(); i++)
-    {
-        if (prices[i] < prices[left])
-        {
-            left = i;   
-            right = i;
+
+int Solution::maxProfit(vector<int> &prices) {
+    int dpMin = prices[0], dpMax = prices[0], dp = 0;
+    for (size_t i = 0; i < prices.size(); i++) {
+        if (dpMin > prices[i]) {
+            dpMin = prices[i];
+            dpMax = prices[i];
+        } else if (dpMax < prices[i]) {
+            dpMax = prices[i];
+            dp = dpMax - dpMin > dp ? dpMax - dpMin : dp;
         }
-        if (prices[i] > prices[right])
-        {
-            right = i;
-        }
-        result = result > prices[right] - prices[left] ? result : prices[right] - prices[left];
     }
-    return result;
+    return dp;
 }
+
+// int Solution::maxProfit(vector<int> &prices)
+// {
+//     int left = 0, right = 0, result = 0;
+//     for (int i = 0; i < prices.size(); i++)
+//     {
+//         if (prices[i] < prices[left])
+//         {
+//             left = i;   
+//             right = i;
+//         }
+//         if (prices[i] > prices[right])
+//         {
+//             right = i;
+//         }
+//         result = result > prices[right] - prices[left] ? result : prices[right] - prices[left];
+//     }
+//     return result;
+// }
 // int Solution::maxProfit(vector<int> &prices)
 // {
 //     int left = 0, right = prices.size() - 1, result = 0;
