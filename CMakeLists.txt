@@ -9,8 +9,6 @@ endif()
 project("LeetCode")
 
 aux_source_directory(. SRC)
-# aux_source_directory(archive/2023-11 SRC_202311)
-# aux_source_directory(archive/2023-12 SRC_202312)
 # aux_source_directory(archive/2024-01 SRC_202401)
 # aux_source_directory(archive/2024-02 SRC_202402)
 # aux_source_directory(archive/2024-03 SRC_202403)
@@ -18,12 +16,13 @@ aux_source_directory(. SRC)
 # aux_source_directory(archive/2024-09 SRC_202409)
 # aux_source_directory(archive/2024-11 SRC_202411)
 # aux_source_directory(archive/2024-12 SRC_202412)
+# aux_source_directory(archive/2025-01 SRC_202501)
+# aux_source_directory(archive/2025-02 SRC_202502)
+# aux_source_directory(archive/2025-03 SRC_202503)
 
-add_executable(LeetCode ${SRC} ${SRC_202311} ${SRC_202312} ${SRC_202401} ${SRC_202402} ${SRC_202403} ${SRC_202405} ${SRC_202409} ${SRC_202411} ${SRC_202412})
+add_executable(LeetCode ${SRC} ${SRC_202311} ${SRC_202312} ${SRC_202401} ${SRC_202402} ${SRC_202403} ${SRC_202405} ${SRC_202409} ${SRC_202411} ${SRC_202412} ${SRC_202501} ${SRC_202502} ${SRC_202503})
 
 target_include_directories(LeetCode PRIVATE
-                                            # archive/2023-11
-                                            # archive/2023-12
                                             # archive/2024-01
                                             # archive/2024-02
                                             # archive/2024-03
@@ -31,6 +30,9 @@ target_include_directories(LeetCode PRIVATE
                                             # archive/2024-09
                                             # archive/2024-11
                                             # archive/2024-12
+                                            # archive/2025-01
+                                            # archive/2025-02
+                                            # archive/2025-03
                                             .)
 
 if(CMAKE_VERSION VERSION_GREATER 3.12)
